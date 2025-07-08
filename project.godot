@@ -32,6 +32,8 @@ directories/dch_directory={
 "mysterious_woman": "res://timelines/characters/mysterious_woman.dch"
 }
 directories/dtl_directory={
+"hall": "res://timelines/hall.dtl",
+"pre_start": "res://timelines/pre_start.dtl",
 "start": "res://timelines/start.dtl"
 }
 
@@ -39,6 +41,7 @@ directories/dtl_directory={
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

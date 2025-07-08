@@ -19,8 +19,10 @@ func _ready() -> void:
 			tween.tween_callback(func():
 				$Character.position = Vector2(970, 1025)
 				$Character.visible = true
+				$BG.play()
 				tween = create_tween().bind_node(self).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 				tween.tween_property($Character, "position", Vector2(970, 370), 1.5)
+				tween.parallel().tween_property($BG, "volume_db", 0, 1)
 				tween.parallel().tween_property($Control/ButtonsContainer, "modulate", Color(1, 1, 1, 1), 1))
 		else:
 			$Title.texture = textures[index]
@@ -38,8 +40,8 @@ func _ready() -> void:
 func _on_exit_game_button_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_start_game_button_pressed() -> void:
+	create_tween().tween_property($BG, "volume_db", -80, 1)
 	transition.play("fade_out")
 
 func _on_transition_animation_finished(anim_name: StringName) -> void:
