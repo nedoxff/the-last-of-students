@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cec12sstvkaoy"]
+[gd_scene load_steps=9 format=3 uid="uid://cec12sstvkaoy"]
 
 [ext_resource type="Script" uid="uid://b4oag6f1qf1fs" path="res://scenes/menu/controller.gd" id="1_e0arn"]
 [ext_resource type="Texture2D" uid="uid://g4opd5m1oicn" path="res://textures/menu/title_1.png" id="2_r8yej"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vkxlo5gjwbu4" path="res://textures/menu/title_3.png" id="4_t0a87"]
 [ext_resource type="Texture2D" uid="uid://bvdmxkt5ley7d" path="res://textures/menu/character_neutral.png" id="6_3y2rt"]
 [ext_resource type="AudioStream" uid="uid://bgvsps12ny3xi" path="res://sfx/thud.mp3" id="7_3y2rt"]
+[ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="8_t0a87"]
 
 [node name="MenuScene" type="Node2D"]
 script = ExtResource("1_e0arn")
@@ -73,3 +74,9 @@ texture = ExtResource("3_y1o0p")
 
 [node name="Thud" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_3y2rt")
+
+[node name="Transition" parent="." instance=ExtResource("8_t0a87")]
+
+[connection signal="pressed" from="Control/ButtonsContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Control/ButtonsContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
