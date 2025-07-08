@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="the-last-of-students"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0.0627451, 0.0627451, 0.0627451, 1)
 boot_splash/image="uid://dmmqah7h6ym73"
@@ -23,8 +23,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"guard": "res://timelines/characters/guard.dch",
+"helping_student": "res://timelines/characters/helping_student.dch",
+"janitor": "res://timelines/characters/janitor.dch",
+"lecturer": "res://timelines/characters/lecturer.dch",
+"main_character": "res://timelines/characters/main_character.dch",
+"mysterious_woman": "res://timelines/characters/mysterious_woman.dch"
+}
+directories/dtl_directory={
+"start": "res://timelines/start.dtl"
+}
 
 [display]
 

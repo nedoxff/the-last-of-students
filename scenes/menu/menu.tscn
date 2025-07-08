@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://cec12sstvkaoy"]
+
+[ext_resource type="Script" uid="uid://b4oag6f1qf1fs" path="res://scenes/menu/controller.gd" id="1_e0arn"]
+[ext_resource type="Texture2D" uid="uid://g4opd5m1oicn" path="res://textures/menu/title_1.png" id="2_r8yej"]
+[ext_resource type="Texture2D" uid="uid://cdbbxojokiwm1" path="res://textures/menu/title_2.png" id="3_3y2rt"]
+[ext_resource type="Texture2D" uid="uid://wcp5aumsun2i" path="res://textures/menu/title_4.png" id="3_y1o0p"]
+[ext_resource type="Texture2D" uid="uid://vkxlo5gjwbu4" path="res://textures/menu/title_3.png" id="4_t0a87"]
+[ext_resource type="Texture2D" uid="uid://bvdmxkt5ley7d" path="res://textures/menu/character_neutral.png" id="6_3y2rt"]
+[ext_resource type="AudioStream" uid="uid://bgvsps12ny3xi" path="res://sfx/thud.mp3" id="7_3y2rt"]
+
+[node name="MenuScene" type="Node2D"]
+script = ExtResource("1_e0arn")
+textures = Array[Texture2D]([ExtResource("2_r8yej"), ExtResource("3_3y2rt"), ExtResource("4_t0a87"), ExtResource("3_y1o0p")])
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 440.0
+offset_right = 430.0
+offset_bottom = 660.0
+
+[node name="StartGameButton" type="Button" parent="Control/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Начать игру"
+
+[node name="SettingsButton" type="Button" parent="Control/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Настройки
+"
+
+[node name="AboutGameButton" type="Button" parent="Control/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Об игре
+"
+
+[node name="ExitGameButton" type="Button" parent="Control/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Выйти
+"
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(970, 370)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("6_3y2rt")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(360, 160)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_y1o0p")
+
+[node name="Thud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3y2rt")

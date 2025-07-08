@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolbnx4u5smle"]
+
+[ext_resource type="Texture2D" uid="uid://ddyk0p3rxjurm" path="res://textures/backgrounds/hall.jpg" id="1_hbyw8"]
+
+[node name="FirstFloor" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_hbyw8")

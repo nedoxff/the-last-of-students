@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7fup0ckjp3gw"]
+
+[ext_resource type="Script" uid="uid://c4whnwqgq0bu0" path="res://scenes/outside/controller.gd" id="1_bnvo1"]
+[ext_resource type="Texture2D" uid="uid://cj2r3vax6tmqk" path="res://textures/backgrounds/outside.jpg" id="1_nywo2"]
+
+[node name="Outside" type="Node2D"]
+script = ExtResource("1_bnvo1")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_nywo2")
