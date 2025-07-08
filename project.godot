@@ -33,6 +33,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "hall": "res://timelines/hall.dtl",
+"pre_start": "res://timelines/pre_start.dtl",
 "start": "res://timelines/start.dtl"
 }
 

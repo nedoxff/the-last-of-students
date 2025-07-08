@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7fup0ckjp3gw"]
+[gd_scene load_steps=7 format=3 uid="uid://b7fup0ckjp3gw"]
 
 [ext_resource type="Script" uid="uid://c4whnwqgq0bu0" path="res://scenes/outside/controller.gd" id="1_bnvo1"]
 [ext_resource type="Texture2D" uid="uid://cj2r3vax6tmqk" path="res://textures/backgrounds/outside.jpg" id="1_nywo2"]
+[ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="3_ile57"]
+[ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="3_qbnsr"]
+[ext_resource type="AudioStream" uid="uid://bvdbqtsw2k43k" path="res://sfx/city.mp3" id="5_7fvn1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvn1"]
+size = Vector2(113, 161.5)
 
 [node name="Outside" type="Node2D"]
 script = ExtResource("1_bnvo1")
@@ -9,3 +15,49 @@ script = ExtResource("1_bnvo1")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("1_nywo2")
+
+[node name="Door1" parent="." instance=ExtResource("3_ile57")]
+
+[node name="Shape" parent="Door1" index="0"]
+position = Vector2(413.5, 467.75)
+shape = SubResource("RectangleShape2D_7fvn1")
+
+[node name="Door2" parent="." instance=ExtResource("3_ile57")]
+
+[node name="Shape" parent="Door2" index="0"]
+position = Vector2(577, 469)
+shape = SubResource("RectangleShape2D_7fvn1")
+
+[node name="Door3" parent="." instance=ExtResource("3_ile57")]
+
+[node name="Shape" parent="Door3" index="0"]
+position = Vector2(736, 470)
+shape = SubResource("RectangleShape2D_7fvn1")
+
+[node name="Door4" parent="." instance=ExtResource("3_ile57")]
+
+[node name="Shape" parent="Door4" index="0"]
+position = Vector2(910, 468)
+shape = SubResource("RectangleShape2D_7fvn1")
+
+[node name="Transition" parent="." instance=ExtResource("3_qbnsr")]
+
+[node name="ColorRect" parent="Transition" index="0"]
+visible = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7fvn1")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="clicked" from="Door1" to="." method="_on_door_clicked"]
+[connection signal="clicked" from="Door2" to="." method="_on_door_clicked"]
+[connection signal="clicked" from="Door3" to="." method="_on_door_clicked"]
+[connection signal="clicked" from="Door4" to="." method="_on_door_clicked"]
+
+[editable path="Door1"]
+[editable path="Door2"]
+[editable path="Door3"]
+[editable path="Door4"]
+[editable path="Transition"]
