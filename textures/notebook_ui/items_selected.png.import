@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg7rwq0i64n5i"
-path="res://.godot/imported/dean.jpg-b2d9e6c33818c2657037e557f984b043.ctex"
+uid="uid://bwf6roibbielj"
+path="res://.godot/imported/items_selected.png-8514ffb2d0c12c52fe722e7d41f1374b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/backgrounds/dean.jpg"
-dest_files=["res://.godot/imported/dean.jpg-b2d9e6c33818c2657037e557f984b043.ctex"]
+source_file="res://textures/notebook_ui/items_selected.png"
+dest_files=["res://.godot/imported/items_selected.png-8514ffb2d0c12c52fe722e7d41f1374b.ctex"]
 
 [params]
 

@@ -12,7 +12,7 @@ var highlight = false
 var style_box: StyleBoxFlat
 var tween: Tween
 
-func _init() -> void:
+func _ready() -> void:
 	style_box = StyleBoxFlat.new()
 	style_box.set_corner_radius_all(border_radius)
 	style_box.border_width_left = border_width

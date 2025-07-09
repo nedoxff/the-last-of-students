@@ -1,0 +1,169 @@
+[gd_scene load_steps=15 format=3 uid="uid://kf3gseb2gta0"]
+
+[ext_resource type="Script" uid="uid://blwihgmov1jw7" path="res://helpers/notebook.gd" id="1_0e8kc"]
+[ext_resource type="Texture2D" uid="uid://cjxwtfisraxvj" path="res://textures/notebook.png" id="2_db0qa"]
+[ext_resource type="AudioStream" uid="uid://dl8hn1c05pg3r" path="res://sfx/flip.mp3" id="3_pxmiw"]
+[ext_resource type="AudioStream" uid="uid://cy4c7kol15t6p" path="res://sfx/book_close.mp3" id="3_rs4ht"]
+[ext_resource type="AudioStream" uid="uid://b1dy7stwf46d8" path="res://sfx/fip2.mp3" id="4_qwa1l"]
+[ext_resource type="Texture2D" uid="uid://behtqjafdrqjm" path="res://textures/notebook_ui/book.png" id="5_s0t1m"]
+[ext_resource type="ButtonGroup" uid="uid://bo6t6qb1q0ik0" path="res://helpers/notebook_sections_button_group.tres" id="6_fhv6w"]
+[ext_resource type="Texture2D" uid="uid://b6cwc2r6g46pt" path="res://textures/notebook_ui/people.png" id="6_jevi8"]
+[ext_resource type="Texture2D" uid="uid://m24iyapjjsb7" path="res://textures/notebook_ui/back_arrow.png" id="7_icrrf"]
+[ext_resource type="Texture2D" uid="uid://bp2056scl78b2" path="res://textures/notebook_ui/people_selected.png" id="7_kksn4"]
+[ext_resource type="Texture2D" uid="uid://dwenxy5p4t3qj" path="res://textures/notebook_ui/items.png" id="9_8x70c"]
+[ext_resource type="Texture2D" uid="uid://bwf6roibbielj" path="res://textures/notebook_ui/items_selected.png" id="10_rs4ht"]
+[ext_resource type="Texture2D" uid="uid://b0io7hg6e15jx" path="res://textures/notebook_ui/thoughts.png" id="11_icrrf"]
+[ext_resource type="Texture2D" uid="uid://b8fw8fyok1cfr" path="res://textures/notebook_ui/thoughts_selected.png" id="12_bjisw"]
+
+[node name="Notebook" type="Node2D"]
+script = ExtResource("1_0e8kc")
+
+[node name="Trigger" type="TextureRect" parent="."]
+offset_top = -40.0
+offset_right = 369.0
+offset_bottom = 140.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_db0qa")
+
+[node name="Overlay" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.501961)
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rs4ht")
+
+[node name="OpenFlip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pxmiw")
+
+[node name="SectionFlip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qwa1l")
+
+[node name="Book" type="TextureRect" parent="."]
+z_index = 5
+z_as_relative = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.667, 0.667)
+mouse_filter = 2
+texture = ExtResource("5_s0t1m")
+
+[node name="BackButton" type="TextureButton" parent="Book"]
+layout_mode = 0
+offset_left = 1515.74
+offset_top = 44.9775
+offset_right = 2027.74
+offset_bottom = 556.978
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("7_icrrf")
+
+[node name="PeopleButton" type="TextureButton" parent="Book"]
+z_index = 3
+z_as_relative = false
+layout_mode = 0
+offset_left = 271.364
+offset_top = 58.4708
+offset_right = 480.364
+offset_bottom = 190.471
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("6_fhv6w")
+texture_normal = ExtResource("6_jevi8")
+texture_pressed = ExtResource("7_kksn4")
+texture_hover = ExtResource("7_kksn4")
+
+[node name="ItemsButton" type="TextureButton" parent="Book"]
+z_index = 2
+z_as_relative = false
+layout_mode = 0
+offset_left = 466.267
+offset_top = 50.9745
+offset_right = 675.267
+offset_bottom = 182.975
+toggle_mode = true
+button_group = ExtResource("6_fhv6w")
+texture_normal = ExtResource("9_8x70c")
+texture_pressed = ExtResource("10_rs4ht")
+texture_hover = ExtResource("10_rs4ht")
+
+[node name="ThoughtsButton" type="TextureButton" parent="Book"]
+z_index = 1
+z_as_relative = false
+layout_mode = 0
+offset_left = 619.19
+offset_top = 49.4753
+offset_right = 828.19
+offset_bottom = 181.475
+toggle_mode = true
+button_group = ExtResource("6_fhv6w")
+texture_normal = ExtResource("11_icrrf")
+texture_pressed = ExtResource("12_bjisw")
+texture_hover = ExtResource("12_bjisw")
+
+[node name="People" type="Control" parent="Book"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftSide" type="VBoxContainer" parent="Book/People"]
+offset_left = 329.835
+offset_top = 194.903
+offset_right = 849.835
+offset_bottom = 944.903
+rotation = -0.0523599
+
+[node name="RightSide" type="VBoxContainer" parent="Book/People"]
+offset_left = 965.517
+offset_top = 167.916
+offset_right = 1485.52
+offset_bottom = 917.916
+
+[node name="Items" type="Control" parent="Book"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftSide" type="VBoxContainer" parent="Book/Items"]
+offset_left = 329.835
+offset_top = 194.903
+offset_right = 849.835
+offset_bottom = 944.903
+rotation = -0.0523599
+
+[node name="RightSide" type="VBoxContainer" parent="Book/Items"]
+offset_left = 965.517
+offset_top = 167.916
+offset_right = 1485.52
+offset_bottom = 917.916
+
+[node name="Thoughts" type="Control" parent="Book"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftSide" type="VBoxContainer" parent="Book/Thoughts"]
+offset_left = 329.835
+offset_top = 194.903
+offset_right = 849.835
+offset_bottom = 944.903
+rotation = -0.0523599
+
+[node name="RightSide" type="VBoxContainer" parent="Book/Thoughts"]
+offset_left = 965.517
+offset_top = 167.916
+offset_right = 1485.52
+offset_bottom = 917.916
+
+[connection signal="gui_input" from="Trigger" to="." method="_on_overlay_gui_input"]
+[connection signal="mouse_entered" from="Trigger" to="." method="_on_overlay_mouse_entered"]
+[connection signal="mouse_exited" from="Trigger" to="." method="_on_overlay_mouse_exited"]
+[connection signal="pressed" from="Book/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Book/PeopleButton" to="." method="_on_people_button_pressed"]
+[connection signal="pressed" from="Book/ItemsButton" to="." method="_on_items_button_pressed"]
+[connection signal="pressed" from="Book/ThoughtsButton" to="." method="_on_thoughts_button_pressed"]

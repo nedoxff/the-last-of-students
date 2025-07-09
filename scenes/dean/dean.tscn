@@ -1,9 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd2ikidytctrp"]
+[gd_scene load_steps=7 format=3 uid="uid://cd2ikidytctrp"]
 
-[ext_resource type="Texture2D" uid="uid://cg7rwq0i64n5i" path="res://textures/backgrounds/dean.jpg" id="1_ll5an"]
+[ext_resource type="PackedScene" uid="uid://kf3gseb2gta0" path="res://helpers/notebook.tscn" id="1_fgf0y"]
+[ext_resource type="Texture2D" uid="uid://5enadj43qagn" path="res://textures/backgrounds/dean.png" id="1_ll5an"]
+[ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="2_pfktb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgf0y"]
+size = Vector2(32.5625, 78.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb0ii"]
+size = Vector2(54.25, 113.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tftew"]
+size = Vector2(61.5, 68)
 
 [node name="Dean" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
+scale = Vector2(0.667, 0.667)
 texture = ExtResource("1_ll5an")
+
+[node name="Book" parent="." instance=ExtResource("2_pfktb")]
+border_width = 0.0
+
+[node name="Shape" parent="Book" index="0"]
+position = Vector2(1066.72, 620.063)
+shape = SubResource("RectangleShape2D_fgf0y")
+
+[node name="Mirror" parent="." instance=ExtResource("2_pfktb")]
+border_width = 0.0
+
+[node name="Shape" parent="Mirror" index="0"]
+position = Vector2(780, 438.875)
+shape = SubResource("RectangleShape2D_nb0ii")
+
+[node name="Cactus" parent="." instance=ExtResource("2_pfktb")]
+border_width = 0.0
+
+[node name="Shape" parent="Cactus" index="0"]
+position = Vector2(601, 317)
+shape = SubResource("RectangleShape2D_tftew")
+
+[node name="Notebook" parent="." instance=ExtResource("1_fgf0y")]
+
+[editable path="Book"]
+[editable path="Mirror"]
+[editable path="Cactus"]
