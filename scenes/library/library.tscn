@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccqitp7cqptd"]
+[gd_scene load_steps=8 format=3 uid="uid://ccqitp7cqptd"]
 
 [ext_resource type="Texture2D" uid="uid://d1ahdsornu04x" path="res://textures/backgrounds/library.png" id="1_tc774"]
+[ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="2_sxba8"]
+[ext_resource type="Shader" uid="uid://4nllrn8g8i37" path="res://shaders/Highlight.gdshader" id="3_n1dxq"]
+[ext_resource type="Texture2D" uid="uid://cvaiqnr0slweu" path="res://misc/items/hat.png" id="4_dr0vj"]
+[ext_resource type="Texture2D" uid="uid://cv4f2jk526mrx" path="res://misc/items/ma.png" id="5_dr0vj"]
+[ext_resource type="Texture2D" uid="uid://cj7gd4yc0ur2n" path="res://misc/items/magic_poster.png" id="6_2fiiu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fiiu"]
+shader = ExtResource("3_n1dxq")
+shader_parameter/highlight = false
 
 [node name="Library" type="Node2D"]
 
@@ -8,3 +17,57 @@
 position = Vector2(640, 360)
 scale = Vector2(0.667, 0.667)
 texture = ExtResource("1_tc774")
+
+[node name="Hat" parent="." instance=ExtResource("2_sxba8")]
+position = Vector2(640, 360)
+scale = Vector2(0.667, 0.667)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hat"]
+visible = false
+modulate = Color(0.295867, 0.295866, 0.295866, 0.67451)
+material = SubResource("ShaderMaterial_2fiiu")
+position = Vector2(-633.173, 103.686)
+scale = Vector2(1.01194, 1.0047)
+texture = ExtResource("4_dr0vj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hat"]
+visible = false
+position = Vector2(-633.173, 103.686)
+scale = Vector2(1.01194, 1.0047)
+polygon = PackedVector2Array(-14, -50.5, -34, -50.5, -41, -45.1, -41, -10.3, -35, 10.5, -35, 14.1, -19.8, 37.5, -21, 40, -21, 42.6, -8.8, 50.5, 21.1, 50.5, 30.7, 42.5, 32.2, 42.5, 41, 26.6, 41, -11.1, 39, -19.5, 39, -22.4, 24, -36.5, 24, -37.9, 14, -41.9, 14, -43.6, -2.1, -42.5, -3.3, -42.5, -14, -49.6)
+
+[node name="MA" parent="." instance=ExtResource("2_sxba8")]
+position = Vector2(640, 360)
+scale = Vector2(0.667, 0.667)
+
+[node name="Sprite2D" type="Sprite2D" parent="MA"]
+visible = false
+modulate = Color(0.295867, 0.295866, 0.295866, 0.67451)
+material = SubResource("ShaderMaterial_2fiiu")
+position = Vector2(-98.9505, 88.4558)
+scale = Vector2(1.01194, 1.0047)
+texture = ExtResource("5_dr0vj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MA"]
+visible = false
+position = Vector2(-98.9505, 88.4558)
+scale = Vector2(1.01194, 1.0047)
+polygon = PackedVector2Array(71.5, -21.9, 36.7, -23, -37.6, -23, -57.7, -21, -59, -21, -73, -13, -75.5, -13, -75.5, 21.2, -62.2, 19, -60.8, 19, -31.7, 23, 33.5, 23, 56.6, 17, 61.9, 17, 74.9, 11, 75.5, 11, 75.5, -16.6, 71.5, -20)
+
+[node name="magic_poster" parent="." instance=ExtResource("2_sxba8")]
+position = Vector2(640, 360)
+scale = Vector2(0.667, 0.667)
+
+[node name="Sprite2D" type="Sprite2D" parent="magic_poster"]
+visible = false
+modulate = Color(0.295867, 0.295866, 0.295866, 0.67451)
+material = SubResource("ShaderMaterial_2fiiu")
+position = Vector2(-217.391, -344.828)
+scale = Vector2(1.01194, 1.0047)
+texture = ExtResource("6_2fiiu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="magic_poster"]
+visible = false
+position = Vector2(-217.391, -344.828)
+scale = Vector2(1.01194, 1.0047)
+polygon = PackedVector2Array(47.1, -111, -6.2, -111, -8, -110.9, -8, -110.2, -22.9, -111, -62, -111, -74.7, -100, -78.2, -100, -81.2, -94, -82.9, -94, -87, 20.9, -87, 105.7, -82, 109.9, -82, 111, -73.4, 111, -66.7, 110, -64.4, 110, -61.8, 111, -46.2, 111, -25, 98.1, -16.8, 97, -11.5, 97, -4.4, 92.9, 0, 96, 0, 98.5, 26.5, 92.9, 28, 94, 28, 96.8, 38, 93.4, 43.9, 94, 51.6, 94, 68, 84.1, 68, 83.4, 79.3, 80, 82.2, 80, 84.2, 76, 86, 76, 87, 15, 87, -84.1, 78.9, -93, 73, -109.4, 73, -111, 53.2, -111, 50.2, -108, 49, -108.8, 49, -110.9)

@@ -1,10 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://dolbnx4u5smle"]
+[gd_scene load_steps=12 format=3 uid="uid://dolbnx4u5smle"]
 
+[ext_resource type="Script" uid="uid://du1mo75mdktbr" path="res://scenes/hall/controller.gd" id="1_a1f5s"]
 [ext_resource type="Texture2D" uid="uid://m4q5lnvb8bf7" path="res://textures/backgrounds/hall.png" id="1_hbyw8"]
+[ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="3_j7rtl"]
+[ext_resource type="Shader" uid="uid://4nllrn8g8i37" path="res://shaders/Highlight.gdshader" id="4_fvlnp"]
+[ext_resource type="Texture2D" uid="uid://fdnnn8muvstd" path="res://misc/items/paint.png" id="4_un8hw"]
+[ext_resource type="Texture2D" uid="uid://d8ugt883f378" path="res://misc/items/sanitizer.png" id="5_k0sjm"]
+[ext_resource type="Texture2D" uid="uid://c3fm5svuwe238" path="res://misc/items/poster.png" id="6_fvlnp"]
+[ext_resource type="Texture2D" uid="uid://2yvab77wvnem" path="res://misc/charachters_outline/guard.png" id="8_3oycl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3oycl"]
+shader = ExtResource("4_fvlnp")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qh3pg"]
+shader = ExtResource("4_fvlnp")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4kxng"]
+shader = ExtResource("4_fvlnp")
+shader_parameter/highlight = false
 
 [node name="FirstFloor" type="Node2D"]
+script = ExtResource("1_a1f5s")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(0.888, 0.888)
 texture = ExtResource("1_hbyw8")
+
+[node name="Paint" parent="." instance=ExtResource("3_j7rtl")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Paint"]
+visible = false
+modulate = Color(0.384314, 0.384314, 0.384314, 0.556863)
+material = SubResource("ShaderMaterial_3oycl")
+position = Vector2(612.25, 402.1)
+scale = Vector2(0.946155, 0.946155)
+texture = ExtResource("4_un8hw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Paint"]
+visible = false
+position = Vector2(612.25, 402.1)
+scale = Vector2(0.946155, 0.946155)
+polygon = PackedVector2Array(28.5, -39, 12.5, -39, 8.7, -34, -13.1, -34, -21.1, -29, -24.6, -29, -31.6, -17, -32.5, -17, -32.5, 11.8, -31.5, 13.5, -31.5, 23.5, -24.5, 36.5, -24.5, 38.8, -22.9, 39, 14.8, 39, 20.8, 37, 24.9, 37, 29.9, 23, 31.3, 23, 32.5, 12.9, 32.5, -20.4, 27.5, -27, 28.5, -29.4)
+
+[node name="Sanitizer" parent="." instance=ExtResource("3_j7rtl")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sanitizer"]
+visible = false
+modulate = Color(0.384314, 0.384314, 0.384314, 0.556863)
+material = SubResource("ShaderMaterial_qh3pg")
+position = Vector2(939, 406)
+scale = Vector2(0.946155, 0.946155)
+texture = ExtResource("5_k0sjm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sanitizer"]
+visible = false
+position = Vector2(939, 406)
+scale = Vector2(0.946155, 0.946155)
+polygon = PackedVector2Array(14.4, -49, -9, -49, -12, -44.7, -12, -42.4, -7.5, -36.1, -11.5, -34, -13.4, -34, -15, -29.3, -15, -26.5, -16.3, -26, -19.1, -26, -25.1, -16, -27, -16, -27, 33.9, -20, 41.7, -20, 43.5, -2, 48.4, -2, 49, 6.6, 49, 13.3, 48, 19.7, 48, 26.7, 42, 27, 27.7, 25.7, 20, 27, -0.900002, 27, -11.4, 23, -20.4, 23, -22.7, 13.7, -34.7, 22, -38.8, 22, -45.2)
+
+[node name="Poster" parent="." instance=ExtResource("3_j7rtl")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Poster"]
+visible = false
+modulate = Color(0.384314, 0.384314, 0.384314, 0.556863)
+material = SubResource("ShaderMaterial_4kxng")
+position = Vector2(156, 171)
+scale = Vector2(0.901649, 0.901649)
+texture = ExtResource("6_fvlnp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Poster"]
+visible = false
+position = Vector2(156, 171)
+scale = Vector2(0.901649, 0.901649)
+polygon = PackedVector2Array(34, -144, 27.6, -144, 22, -148, 15, -148, 9, -145.3, -1.3, -145, -5.1, -148, -11.9, -148, -14, -145.9, -17.4, -148, -25.4, -148, -36.5, -143.6, -45, -146.5, -45, -148, -47.4, -148, -56.3, -145, -57.2, -145, -60, -147.8, -70, -148, -72.8, -144, -75.9, -144, -77.9, -147, -81.1, -147, -89.1, -134, -90.8, -134, -96.8, -88, -97.3, -88, -98, -86.4, -98, -85.4, -94.2, -80.5, -96, -78, -97.2, -78, -98, -76.5, -98, -75.5, -96, -72.4, -96, -68, -97.5, -62, -98, 21.3, -97.9, 24, -97.1, 24, -98, 45.5, -98, 137.7, -87.6, 144, -87, 144, -87, 148, -52.7, 148, -51, 147.9, -49.8, 148, -35.8, 148, -25, 144.4, -17, 145.7, -17, 148, -10.1, 144.7, -7, 147.8, -0.0999985, 148, 6, 145.3, 6, 144, 12.2, 144, 14, 145.8, 14, 148, 16.4, 148, 22.5, 145, 23, 147, 23, 148, 55.5, 148, 59.1, 147, 62.1, 147, 63.6, 144.6, 66.4, 148, 74, 148, 80.2, 142.5, 84.7, 144, 88.9, 144, 97.9, 134, 98, 55.5, 96.2, 52, 97.9, 28, 98, -3, 97, -31.1, 97, -33.6, 98, -38.6, 98, -134.7, 91, -140.9, 91, -142.6, 85.2, -144, 77.8, -144, 74, -147.8, 52.2, -148, 52, -146.8, 34, -144.8)
+
+[node name="guard" parent="." instance=ExtResource("3_j7rtl")]
+
+[node name="Sprite2D" type="Sprite2D" parent="guard"]
+visible = false
+modulate = Color(0.384314, 0.384314, 0.384314, 0.556863)
+material = SubResource("ShaderMaterial_4kxng")
+position = Vector2(1094, 362)
+scale = Vector2(0.901649, 0.901649)
+texture = ExtResource("8_3oycl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="guard"]
+visible = false
+position = Vector2(1094, 362)
+scale = Vector2(0.901649, 0.901649)
+polygon = PackedVector2Array(8.5, -102.7, 6.9, -103.5, 0.5, -103.5, -5.5, -96.2, -5.5, -87.7, -18, -80.5, -20.6, -80.5, -27.6, -68.5, -29.6, -68.5, -28.5, -52.4, -28.5, -42.2, -20.5, -18.2, -31.9, -13.5, -35.5, -13.5, -39.5, -8.5, -40.9, -8.5, -47.9, 10.5, -49.3, 10.5, -51.5, 28.1, -51.5, 72.3, -43.3, 80.5, -42.5, 80.5, -42.5, 91.6, -39.5, 93.6, -39.5, 95.2, -5.7, 101.5, -5, 101.5, -1.5, 103.5, 27.8, 103.5, 31.5, 97, 31.5, 92.2, 36.8, 91.5, 38.5, 91.5, 47.5, 79.5, 49.2, 79.5, 51.5, 63.9, 51.5, 28.6, 50.5, 14.4, 50.5, 5.7, 44.5, -0.300003, 44.5, -1.8, 29.2, -8.5, 30.6, -10.5, 31.7, -10.5, 32.8, -12.7, 23.8, -24.8, 28.2, -28.5, 30.2, -28.5, 32.2, -39.5, 33.5, -39.5, 33.5, -53.2, 30.5, -57.2, 30.5, -72.1, 25.5, -80.2, 25.5, -82.8, 16.2, -87, 18.4, -89.5, 19.8, -89.5, 20.9, -92, 17.5, -95.4, 17.5, -96.7, 15.4, -97.8, 6.7, -92.4, 8.5, -98.2)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="guard"]
+position = Vector2(1094, 362)
+scale = Vector2(0.901649, 0.901649)
+polygon = PackedVector2Array(-26, -24.9, -28.5, -23.8, -28.5, -22.8, -30.5, -21.7, -30.5, -17.5, -22.2, -17.5, -21.1, -20)
+
+[connection signal="clicked" from="guard" to="." method="_on_guard_clicked"]
