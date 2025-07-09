@@ -1,14 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7fup0ckjp3gw"]
+[gd_scene load_steps=14 format=3 uid="uid://b7fup0ckjp3gw"]
 
 [ext_resource type="Script" uid="uid://c4whnwqgq0bu0" path="res://scenes/outside/controller.gd" id="1_bnvo1"]
 [ext_resource type="Texture2D" uid="uid://cj2r3vax6tmqk" path="res://textures/backgrounds/outside.jpg" id="1_nywo2"]
 [ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="3_ile57"]
 [ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="3_qbnsr"]
+[ext_resource type="Shader" uid="uid://4nllrn8g8i37" path="res://shaders/Highlight.gdshader" id="4_albt5"]
 [ext_resource type="AudioStream" uid="uid://bvdbqtsw2k43k" path="res://sfx/city.mp3" id="5_7fvn1"]
 [ext_resource type="PackedScene" uid="uid://kf3gseb2gta0" path="res://helpers/notebook.tscn" id="6_7jduf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvn1"]
-size = Vector2(113, 161.5)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38d8k"]
+shader = ExtResource("4_albt5")
+shader_parameter/highlight = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i1aa"]
+size = Vector2(101, 166)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5mq7"]
+shader = ExtResource("4_albt5")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u55tu"]
+shader = ExtResource("4_albt5")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w3iik"]
+shader = ExtResource("4_albt5")
+shader_parameter/highlight = false
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_albt5"]
 
@@ -21,27 +38,63 @@ texture = ExtResource("1_nywo2")
 
 [node name="Door1" parent="." instance=ExtResource("3_ile57")]
 
-[node name="Shape" parent="Door1" index="0"]
-position = Vector2(413.5, 467.75)
-shape = SubResource("RectangleShape2D_7fvn1")
+[node name="Sprite2D" type="ColorRect" parent="Door1"]
+visible = false
+material = SubResource("ShaderMaterial_38d8k")
+offset_left = 363.0
+offset_top = 384.0
+offset_right = 463.0
+offset_bottom = 549.0
+mouse_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1"]
+position = Vector2(413, 467)
+shape = SubResource("RectangleShape2D_5i1aa")
 
 [node name="Door2" parent="." instance=ExtResource("3_ile57")]
 
-[node name="Shape" parent="Door2" index="0"]
-position = Vector2(577, 469)
-shape = SubResource("RectangleShape2D_7fvn1")
+[node name="Sprite2D" type="ColorRect" parent="Door2"]
+visible = false
+material = SubResource("ShaderMaterial_s5mq7")
+offset_left = 527.0
+offset_top = 384.0
+offset_right = 627.0
+offset_bottom = 549.0
+mouse_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+position = Vector2(577, 467)
+shape = SubResource("RectangleShape2D_5i1aa")
 
 [node name="Door3" parent="." instance=ExtResource("3_ile57")]
 
-[node name="Shape" parent="Door3" index="0"]
-position = Vector2(736, 470)
-shape = SubResource("RectangleShape2D_7fvn1")
+[node name="Sprite2D" type="ColorRect" parent="Door3"]
+visible = false
+material = SubResource("ShaderMaterial_u55tu")
+offset_left = 687.0
+offset_top = 386.0
+offset_right = 787.0
+offset_bottom = 551.0
+mouse_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
+position = Vector2(737, 469)
+shape = SubResource("RectangleShape2D_5i1aa")
 
 [node name="Door4" parent="." instance=ExtResource("3_ile57")]
 
-[node name="Shape" parent="Door4" index="0"]
-position = Vector2(910, 468)
-shape = SubResource("RectangleShape2D_7fvn1")
+[node name="Sprite2D" type="ColorRect" parent="Door4"]
+visible = false
+material = SubResource("ShaderMaterial_w3iik")
+offset_left = 863.0
+offset_top = 385.0
+offset_right = 963.0
+offset_bottom = 550.0
+mouse_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
+position = Vector2(913, 468)
+shape = SubResource("RectangleShape2D_5i1aa")
 
 [node name="Transition" parent="." instance=ExtResource("3_qbnsr")]
 
