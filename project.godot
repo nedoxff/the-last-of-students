@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://helpers/global.gd"
 
 [dialogic]
 
@@ -32,6 +33,7 @@ directories/dch_directory={
 "mysterious_woman": "res://timelines/characters/mysterious_woman.dch"
 }
 directories/dtl_directory={
+"dean_book": "res://timelines/dean/dean_book.dtl",
 "hall": "res://timelines/hall.dtl",
 "pre_start": "res://timelines/pre_start.dtl",
 "start": "res://timelines/start.dtl"

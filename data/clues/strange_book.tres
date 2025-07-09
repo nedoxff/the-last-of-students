@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://ccpvoijdv360n"]
+
+[ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_g1wxa"]
+
+[resource]
+script = ExtResource("1_g1wxa")
+id = "strange_book"
+name = "Странная книга"
+description = "На ней точно что-то написано..."
+metadata/_custom_type_script = "uid://blxerhl4pgulq"

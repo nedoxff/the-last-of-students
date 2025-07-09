@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://cwwgqblt6svwj"]
+
+[ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_ickqv"]
+[ext_resource type="Texture2D" uid="uid://swrttngult7g" path="res://textures/notebook_entries/guard.png" id="2_5a57u"]
+
+[resource]
+script = ExtResource("1_ickqv")
+id = "guard"
+texture = ExtResource("2_5a57u")
+name = "Охранник"
+description = "Откуда он вычитал про карантин? Надеюсь, это старые новости..."
+metadata/_custom_type_script = "uid://blxerhl4pgulq"

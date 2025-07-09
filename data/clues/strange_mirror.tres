@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://c6ed22b3272ak"]
+
+[ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_y1bg2"]
+
+[resource]
+script = ExtResource("1_y1bg2")
+id = "strange_mirror"
+name = "Странное зеркало"
+description = "Мне кажется, что наши отражения не сошлись...
+"
+metadata/_custom_type_script = "uid://blxerhl4pgulq"

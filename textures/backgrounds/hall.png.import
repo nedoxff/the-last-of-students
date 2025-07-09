@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vnotlqxfgnyq"
-path="res://.godot/imported/library.jpg-67563bed0fe752c04b409544514c2ed7.ctex"
+uid="uid://m4q5lnvb8bf7"
+path="res://.godot/imported/hall.png-6b27dd040eca96966c2d703eb1b9b43f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/backgrounds/library.jpg"
-dest_files=["res://.godot/imported/library.jpg-67563bed0fe752c04b409544514c2ed7.ctex"]
+source_file="res://textures/backgrounds/hall.png"
+dest_files=["res://.godot/imported/hall.png-6b27dd040eca96966c2d703eb1b9b43f.ctex"]
 
 [params]
 

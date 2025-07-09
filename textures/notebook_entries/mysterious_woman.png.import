@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddyk0p3rxjurm"
-path="res://.godot/imported/hall.jpg-1ffb5b6a645b61189adabb50c5dc988d.ctex"
+uid="uid://bpmr5ig7u1174"
+path="res://.godot/imported/mysterious_woman.png-631287b7a493c78807e9d9234c59ccd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/backgrounds/hall.jpg"
-dest_files=["res://.godot/imported/hall.jpg-1ffb5b6a645b61189adabb50c5dc988d.ctex"]
+source_file="res://textures/notebook_entries/mysterious_woman.png"
+dest_files=["res://.godot/imported/mysterious_woman.png-631287b7a493c78807e9d9234c59ccd0.ctex"]
 
 [params]
 

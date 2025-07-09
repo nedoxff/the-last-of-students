@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd2ikidytctrp"]
+[gd_scene load_steps=11 format=3 uid="uid://cd2ikidytctrp"]
 
 [ext_resource type="PackedScene" uid="uid://kf3gseb2gta0" path="res://helpers/notebook.tscn" id="1_fgf0y"]
 [ext_resource type="Texture2D" uid="uid://5enadj43qagn" path="res://textures/backgrounds/dean.png" id="1_ll5an"]
+[ext_resource type="Script" uid="uid://b5jpuuop3j20k" path="res://scenes/dean/dean.gd" id="1_nb0ii"]
+[ext_resource type="Resource" uid="uid://ccpvoijdv360n" path="res://data/clues/strange_book.tres" id="2_3anct"]
 [ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="2_pfktb"]
+[ext_resource type="Resource" uid="uid://c6ed22b3272ak" path="res://data/clues/strange_mirror.tres" id="3_dyal3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgf0y"]
 size = Vector2(32.5625, 78.125)
@@ -13,7 +16,12 @@ size = Vector2(54.25, 113.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tftew"]
 size = Vector2(61.5, 68)
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_3anct"]
+
 [node name="Dean" type="Node2D"]
+script = ExtResource("1_nb0ii")
+book_entry = ExtResource("2_3anct")
+mirror_entry = ExtResource("3_dyal3")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -21,21 +29,18 @@ scale = Vector2(0.667, 0.667)
 texture = ExtResource("1_ll5an")
 
 [node name="Book" parent="." instance=ExtResource("2_pfktb")]
-border_width = 0.0
 
 [node name="Shape" parent="Book" index="0"]
 position = Vector2(1066.72, 620.063)
 shape = SubResource("RectangleShape2D_fgf0y")
 
 [node name="Mirror" parent="." instance=ExtResource("2_pfktb")]
-border_width = 0.0
 
 [node name="Shape" parent="Mirror" index="0"]
 position = Vector2(780, 438.875)
 shape = SubResource("RectangleShape2D_nb0ii")
 
 [node name="Cactus" parent="." instance=ExtResource("2_pfktb")]
-border_width = 0.0
 
 [node name="Shape" parent="Cactus" index="0"]
 position = Vector2(601, 317)
@@ -43,6 +48,26 @@ shape = SubResource("RectangleShape2D_tftew")
 
 [node name="Notebook" parent="." instance=ExtResource("1_fgf0y")]
 
+[node name="Overlay" parent="Notebook" index="1"]
+visible = false
+
+[node name="Book" parent="Notebook" index="6"]
+visible = false
+
+[node name="PeopleButton" parent="Notebook/Book" index="1"]
+button_group = SubResource("ButtonGroup_3anct")
+
+[node name="ItemsButton" parent="Notebook/Book" index="2"]
+button_group = SubResource("ButtonGroup_3anct")
+
+[node name="ThoughtsButton" parent="Notebook/Book" index="3"]
+button_group = SubResource("ButtonGroup_3anct")
+
+[connection signal="clicked" from="Book" to="." method="_on_book_clicked"]
+[connection signal="clicked" from="Mirror" to="." method="_on_mirror_clicked"]
+[connection signal="clicked" from="Cactus" to="." method="_on_cactus_clicked"]
+
 [editable path="Book"]
 [editable path="Mirror"]
 [editable path="Cactus"]
+[editable path="Notebook"]

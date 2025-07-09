@@ -3,7 +3,7 @@ extends Area2D
 signal clicked
 @export var highlight_color: Color = Color.GOLDENROD
 @export var border_radius: float = 5
-@export var border_width: float = 10
+@export var border_width: float = 0
 
 @onready var pos = $Shape.position
 @onready var size = $Shape.get_shape().size

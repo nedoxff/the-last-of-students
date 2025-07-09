@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7fup0ckjp3gw"]
+[gd_scene load_steps=9 format=3 uid="uid://b7fup0ckjp3gw"]
 
 [ext_resource type="Script" uid="uid://c4whnwqgq0bu0" path="res://scenes/outside/controller.gd" id="1_bnvo1"]
 [ext_resource type="Texture2D" uid="uid://cj2r3vax6tmqk" path="res://textures/backgrounds/outside.jpg" id="1_nywo2"]
 [ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="3_ile57"]
 [ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="3_qbnsr"]
 [ext_resource type="AudioStream" uid="uid://bvdbqtsw2k43k" path="res://sfx/city.mp3" id="5_7fvn1"]
+[ext_resource type="PackedScene" uid="uid://kf3gseb2gta0" path="res://helpers/notebook.tscn" id="6_7jduf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvn1"]
 size = Vector2(113, 161.5)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_albt5"]
 
 [node name="Outside" type="Node2D"]
 script = ExtResource("1_bnvo1")
@@ -42,14 +45,28 @@ shape = SubResource("RectangleShape2D_7fvn1")
 
 [node name="Transition" parent="." instance=ExtResource("3_qbnsr")]
 
-[node name="ColorRect" parent="Transition" index="0"]
-visible = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="CityBG" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7fvn1")
 volume_db = -20.0
 autoplay = true
 parameters/looping = true
+
+[node name="Notebook" parent="." instance=ExtResource("6_7jduf")]
+
+[node name="Overlay" parent="Notebook" index="1"]
+visible = false
+
+[node name="Book" parent="Notebook" index="6"]
+visible = false
+
+[node name="PeopleButton" parent="Notebook/Book" index="1"]
+button_group = SubResource("ButtonGroup_albt5")
+
+[node name="ItemsButton" parent="Notebook/Book" index="2"]
+button_group = SubResource("ButtonGroup_albt5")
+
+[node name="ThoughtsButton" parent="Notebook/Book" index="3"]
+button_group = SubResource("ButtonGroup_albt5")
 
 [connection signal="clicked" from="Door1" to="." method="_on_door_clicked"]
 [connection signal="clicked" from="Door2" to="." method="_on_door_clicked"]
@@ -60,4 +77,4 @@ parameters/looping = true
 [editable path="Door2"]
 [editable path="Door3"]
 [editable path="Door4"]
-[editable path="Transition"]
+[editable path="Notebook"]

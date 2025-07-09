@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://kf3gseb2gta0"]
+[gd_scene load_steps=23 format=3 uid="uid://kf3gseb2gta0"]
 
 [ext_resource type="Script" uid="uid://blwihgmov1jw7" path="res://helpers/notebook.gd" id="1_0e8kc"]
 [ext_resource type="Texture2D" uid="uid://cjxwtfisraxvj" path="res://textures/notebook.png" id="2_db0qa"]
 [ext_resource type="AudioStream" uid="uid://dl8hn1c05pg3r" path="res://sfx/flip.mp3" id="3_pxmiw"]
 [ext_resource type="AudioStream" uid="uid://cy4c7kol15t6p" path="res://sfx/book_close.mp3" id="3_rs4ht"]
+[ext_resource type="AudioStream" uid="uid://dd0qvxni33t5k" path="res://sfx/scribble.mp3" id="3_smeua"]
 [ext_resource type="AudioStream" uid="uid://b1dy7stwf46d8" path="res://sfx/fip2.mp3" id="4_qwa1l"]
 [ext_resource type="Texture2D" uid="uid://behtqjafdrqjm" path="res://textures/notebook_ui/book.png" id="5_s0t1m"]
 [ext_resource type="ButtonGroup" uid="uid://bo6t6qb1q0ik0" path="res://helpers/notebook_sections_button_group.tres" id="6_fhv6w"]
@@ -14,13 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://bwf6roibbielj" path="res://textures/notebook_ui/items_selected.png" id="10_rs4ht"]
 [ext_resource type="Texture2D" uid="uid://b0io7hg6e15jx" path="res://textures/notebook_ui/thoughts.png" id="11_icrrf"]
 [ext_resource type="Texture2D" uid="uid://b8fw8fyok1cfr" path="res://textures/notebook_ui/thoughts_selected.png" id="12_bjisw"]
+[ext_resource type="PackedScene" uid="uid://vxvuo7ne2rbc" path="res://helpers/notebook_entry.tscn" id="15_icrrf"]
+[ext_resource type="Resource" uid="uid://cwwgqblt6svwj" path="res://data/people/guard.tres" id="16_dbp0v"]
+[ext_resource type="Resource" uid="uid://cii7o44u7baf3" path="res://data/people/janitor.tres" id="17_vts34"]
+[ext_resource type="Resource" uid="uid://bri4qxnghbx7w" path="res://data/people/helping_student.tres" id="18_eb0r1"]
+[ext_resource type="Resource" uid="uid://c3kyxsx2g07tx" path="res://data/people/weird_professor.tres" id="19_smeua"]
+[ext_resource type="Resource" uid="uid://ccpvoijdv360n" path="res://data/clues/strange_book.tres" id="21_6cmbp"]
+[ext_resource type="Resource" uid="uid://c6ed22b3272ak" path="res://data/clues/strange_mirror.tres" id="22_ahoao"]
 
 [node name="Notebook" type="Node2D"]
 script = ExtResource("1_0e8kc")
 
 [node name="Trigger" type="TextureRect" parent="."]
+offset_left = 1000.0
 offset_top = -40.0
-offset_right = 369.0
+offset_right = 1369.0
 offset_bottom = 140.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_db0qa")
@@ -31,6 +40,9 @@ custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
+
+[node name="Scribble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_smeua")
 
 [node name="Close" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_rs4ht")
@@ -108,17 +120,41 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="LeftSide" type="VBoxContainer" parent="Book/People"]
-offset_left = 329.835
-offset_top = 194.903
-offset_right = 849.835
-offset_bottom = 944.903
-rotation = -0.0523599
+layout_mode = 0
+offset_left = 330.0
+offset_top = 195.0
+offset_right = 880.0
+offset_bottom = 945.0
+rotation = -0.0349066
+theme_override_constants/separation = 30
+
+[node name="NotebookEntry5" parent="Book/People/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+
+[node name="NotebookEntry4" parent="Book/People/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = ExtResource("16_dbp0v")
+
+[node name="NotebookEntry3" parent="Book/People/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = ExtResource("17_vts34")
 
 [node name="RightSide" type="VBoxContainer" parent="Book/People"]
-offset_left = 965.517
-offset_top = 167.916
-offset_right = 1485.52
-offset_bottom = 917.916
+layout_mode = 0
+offset_left = 934.033
+offset_top = 184.408
+offset_right = 1462.03
+offset_bottom = 934.408
+rotation = -0.0349066
+theme_override_constants/separation = 30
+
+[node name="NotebookEntry5" parent="Book/People/RightSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = ExtResource("18_eb0r1")
+
+[node name="NotebookEntry4" parent="Book/People/RightSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = ExtResource("19_smeua")
 
 [node name="Items" type="Control" parent="Book"]
 visible = false
@@ -128,17 +164,58 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="LeftSide" type="VBoxContainer" parent="Book/Items"]
-offset_left = 329.835
-offset_top = 194.903
-offset_right = 849.835
-offset_bottom = 944.903
-rotation = -0.0523599
+layout_mode = 0
+offset_left = 330.0
+offset_top = 195.0
+offset_right = 880.0
+offset_bottom = 945.0
+rotation = -0.0349066
+theme_override_constants/separation = 30
+
+[node name="NotebookEntry5" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
+
+[node name="NotebookEntry4" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
+
+[node name="NotebookEntry3" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
+
+[node name="NotebookEntry7" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
+
+[node name="NotebookEntry6" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
 
 [node name="RightSide" type="VBoxContainer" parent="Book/Items"]
-offset_left = 965.517
-offset_top = 167.916
-offset_right = 1485.52
-offset_bottom = 917.916
+layout_mode = 0
+offset_left = 934.033
+offset_top = 184.408
+offset_right = 1462.03
+offset_bottom = 934.408
+rotation = -0.0349066
+theme_override_constants/separation = 30
+
+[node name="NotebookEntry5" parent="Book/Items/RightSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
+
+[node name="NotebookEntry6" parent="Book/Items/RightSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = null
+
+[node name="NotebookEntry7" parent="Book/Items/RightSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = ExtResource("21_6cmbp")
+
+[node name="NotebookEntry4" parent="Book/Items/RightSide" instance=ExtResource("15_icrrf")]
+layout_mode = 2
+entry = ExtResource("22_ahoao")
 
 [node name="Thoughts" type="Control" parent="Book"]
 visible = false
@@ -148,6 +225,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="LeftSide" type="VBoxContainer" parent="Book/Thoughts"]
+layout_mode = 0
 offset_left = 329.835
 offset_top = 194.903
 offset_right = 849.835
@@ -155,10 +233,38 @@ offset_bottom = 944.903
 rotation = -0.0523599
 
 [node name="RightSide" type="VBoxContainer" parent="Book/Thoughts"]
+layout_mode = 0
 offset_left = 965.517
 offset_top = 167.916
 offset_right = 1485.52
 offset_bottom = 917.916
+
+[node name="EntryAnnouncer" type="Control" parent="."]
+visible = false
+z_index = 5
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="EntryAnnouncer"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 120.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EntryAnnouncer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "Добавлена новая запись:
+[b]Загадочная женщина?[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="gui_input" from="Trigger" to="." method="_on_overlay_gui_input"]
 [connection signal="mouse_entered" from="Trigger" to="." method="_on_overlay_mouse_entered"]

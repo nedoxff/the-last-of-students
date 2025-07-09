@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://vxvuo7ne2rbc"]
+
+[ext_resource type="Script" uid="uid://vodigt7ionl6" path="res://helpers/notebook_entry.gd" id="1_ye7nk"]
+[ext_resource type="Texture2D" uid="uid://rawwn6iqgvnj" path="res://textures/notebook_ui/unknown_entry.png" id="2_3v417"]
+[ext_resource type="Resource" uid="uid://b3hl3u5ccrc0p" path="res://data/people/mysterious_woman.tres" id="2_okfrp"]
+[ext_resource type="FontFile" uid="uid://cpli1gavykipj" path="res://fonts/jeff_script.otf" id="3_okfrp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kw7lb"]
+font = ExtResource("3_okfrp")
+font_size = 48
+font_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wa7iv"]
+font = ExtResource("3_okfrp")
+font_size = 32
+font_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="NotebookEntry" type="HBoxContainer"]
+offset_right = 602.0
+offset_bottom = 202.0
+theme_override_constants/separation = 20
+script = ExtResource("1_ye7nk")
+entry = ExtResource("2_okfrp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+texture = ExtResource("2_3v417")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Title" type="Label" parent="TextContainer"]
+layout_mode = 2
+text = "мяу"
+label_settings = SubResource("LabelSettings_kw7lb")
+
+[node name="Description" type="Label" parent="TextContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "мяу"
+label_settings = SubResource("LabelSettings_wa7iv")
+autowrap_mode = 3
