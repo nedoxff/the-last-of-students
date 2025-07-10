@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://jh5sqsbcbrag"]
+
+[ext_resource type="Script" uid="uid://dd2d5lee4633a" path="res://helpers/dropable_slot.gd" id="1_2kr8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgnmk"]
+size = Vector2(167.5, 169)
+
+[node name="slot" type="StaticBody2D" groups=["dropable"]]
+script = ExtResource("1_2kr8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0.5)
+shape = SubResource("RectangleShape2D_jgnmk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -84.0
+offset_top = -85.0
+offset_right = 86.0
+offset_bottom = 85.0
+color = Color(0.125911, 0.125911, 0.125911, 1)
+metadata/_edit_use_anchors_ = true
