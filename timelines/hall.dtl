@@ -1,5 +1,4 @@
-join main_character center
-join guard center
+join guard (looking_away) right
 main_character: Добрый день.
 label questions
 - Подскажите, где я могу найти Юрия Леонидовича?
@@ -14,3 +13,4 @@ label questions
 	jump questions
 - Уйти
 	main_character: Спасибо за информацию, хорошего дня!
+	[signal arg="unlock_guard"]

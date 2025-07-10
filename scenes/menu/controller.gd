@@ -6,6 +6,7 @@ var index = 0
 var outside_scene = preload("res://scenes/outside/outside.tscn")
 
 func _ready() -> void:
+	$Transition/ColorRect.visible = false
 	$Character.visible = false
 	$Title.visible = false
 	$Control/ButtonsContainer.modulate = Color(1, 1, 1, 0)

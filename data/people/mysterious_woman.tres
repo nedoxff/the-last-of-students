@@ -7,6 +7,6 @@
 script = ExtResource("1_c1j1e")
 id = "mysterious_woman"
 texture = ExtResource("2_826u3")
-name = "Загадочная женщина"
+name = "Загадочная девушка"
 description = "Я уверен, что где-то видел её лицо. Я не расслышал, что она сказала, но похоже, что хорошо это не закончится."
 metadata/_custom_type_script = "uid://blxerhl4pgulq"

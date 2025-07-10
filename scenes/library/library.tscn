@@ -1,17 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccqitp7cqptd"]
+[gd_scene load_steps=14 format=3 uid="uid://ccqitp7cqptd"]
 
+[ext_resource type="Script" uid="uid://gqy5g3kbjxo2" path="res://scenes/library/library.gd" id="1_af33p"]
 [ext_resource type="Texture2D" uid="uid://d1ahdsornu04x" path="res://textures/backgrounds/library.png" id="1_tc774"]
 [ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="2_sxba8"]
 [ext_resource type="Shader" uid="uid://4nllrn8g8i37" path="res://shaders/Highlight.gdshader" id="3_n1dxq"]
 [ext_resource type="Texture2D" uid="uid://cvaiqnr0slweu" path="res://misc/items/hat.png" id="4_dr0vj"]
 [ext_resource type="Texture2D" uid="uid://cv4f2jk526mrx" path="res://misc/items/ma.png" id="5_dr0vj"]
 [ext_resource type="Texture2D" uid="uid://cj7gd4yc0ur2n" path="res://misc/items/magic_poster.png" id="6_2fiiu"]
+[ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="7_2fiiu"]
+[ext_resource type="Texture2D" uid="uid://cyi0c5y06026x" path="res://misc/items/student.png" id="9_hhpt3"]
+[ext_resource type="Texture2D" uid="uid://bv04s8th0ahu2" path="res://misc/items/janitor.png" id="10_86hr1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2fiiu"]
 shader = ExtResource("3_n1dxq")
 shader_parameter/highlight = false
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ax6kb"]
+shader = ExtResource("3_n1dxq")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34pyg"]
+shader = ExtResource("3_n1dxq")
+shader_parameter/highlight = false
+
 [node name="Library" type="Node2D"]
+script = ExtResource("1_af33p")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -31,7 +44,6 @@ scale = Vector2(1.01194, 1.0047)
 texture = ExtResource("4_dr0vj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hat"]
-visible = false
 position = Vector2(-633.173, 103.686)
 scale = Vector2(1.01194, 1.0047)
 polygon = PackedVector2Array(-14, -50.5, -34, -50.5, -41, -45.1, -41, -10.3, -35, 10.5, -35, 14.1, -19.8, 37.5, -21, 40, -21, 42.6, -8.8, 50.5, 21.1, 50.5, 30.7, 42.5, 32.2, 42.5, 41, 26.6, 41, -11.1, 39, -19.5, 39, -22.4, 24, -36.5, 24, -37.9, 14, -41.9, 14, -43.6, -2.1, -42.5, -3.3, -42.5, -14, -49.6)
@@ -49,7 +61,6 @@ scale = Vector2(1.01194, 1.0047)
 texture = ExtResource("5_dr0vj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MA"]
-visible = false
 position = Vector2(-98.9505, 88.4558)
 scale = Vector2(1.01194, 1.0047)
 polygon = PackedVector2Array(71.5, -21.9, 36.7, -23, -37.6, -23, -57.7, -21, -59, -21, -73, -13, -75.5, -13, -75.5, 21.2, -62.2, 19, -60.8, 19, -31.7, 23, 33.5, 23, 56.6, 17, 61.9, 17, 74.9, 11, 75.5, 11, 75.5, -16.6, 71.5, -20)
@@ -67,7 +78,37 @@ scale = Vector2(1.01194, 1.0047)
 texture = ExtResource("6_2fiiu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="magic_poster"]
-visible = false
 position = Vector2(-217.391, -344.828)
 scale = Vector2(1.01194, 1.0047)
 polygon = PackedVector2Array(47.1, -111, -6.2, -111, -8, -110.9, -8, -110.2, -22.9, -111, -62, -111, -74.7, -100, -78.2, -100, -81.2, -94, -82.9, -94, -87, 20.9, -87, 105.7, -82, 109.9, -82, 111, -73.4, 111, -66.7, 110, -64.4, 110, -61.8, 111, -46.2, 111, -25, 98.1, -16.8, 97, -11.5, 97, -4.4, 92.9, 0, 96, 0, 98.5, 26.5, 92.9, 28, 94, 28, 96.8, 38, 93.4, 43.9, 94, 51.6, 94, 68, 84.1, 68, 83.4, 79.3, 80, 82.2, 80, 84.2, 76, 86, 76, 87, 15, 87, -84.1, 78.9, -93, 73, -109.4, 73, -111, 53.2, -111, 50.2, -108, 49, -108.8, 49, -110.9)
+
+[node name="Transition" parent="." instance=ExtResource("7_2fiiu")]
+
+[node name="ColorRect" parent="Transition" index="0"]
+visible = true
+
+[node name="Student" parent="." instance=ExtResource("2_sxba8")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Student"]
+visible = false
+material = SubResource("ShaderMaterial_ax6kb")
+position = Vector2(357, 330.625)
+scale = Vector2(0.675532, 0.659615)
+texture = ExtResource("9_hhpt3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Student"]
+polygon = PackedVector2Array(375, 254, 362, 257, 334, 293, 315, 291, 298, 288, 297, 297, 311, 306, 337, 312, 359, 295, 364, 317, 362, 340, 352, 435, 340, 435, 337, 449, 344, 457, 370, 454, 372, 446, 381, 429, 379, 408, 389, 382, 385, 438, 377, 443, 384, 455, 401, 451, 407, 437, 414, 334, 418, 299, 416, 265, 404, 254, 408, 240, 414, 223, 412, 205, 375, 200, 369, 212, 372, 231, 376, 238)
+
+[node name="Janitor" parent="." instance=ExtResource("2_sxba8")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Janitor"]
+visible = false
+material = SubResource("ShaderMaterial_34pyg")
+position = Vector2(1099, 455.5)
+scale = Vector2(0.685139, 0.667244)
+texture = ExtResource("10_86hr1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Janitor"]
+polygon = PackedVector2Array(1165, 280, 1149, 284, 1146, 319, 1155, 325, 1155, 336, 1152, 343, 1133, 344, 1118, 356, 1112, 379, 1118, 384, 1116, 392, 1111, 397, 1071, 480, 1015, 478, 972, 497, 968, 511, 989, 521, 1086, 497, 1088, 488, 1107, 477, 1101, 470, 1088, 477, 1117, 420, 1136, 409, 1137, 385, 1143, 386, 1143, 418, 1118, 533, 1127, 542, 1137, 547, 1136, 555, 1147, 562, 1160, 563, 1167, 545, 1180, 542, 1191, 552, 1205, 553, 1214, 542, 1213, 529, 1232, 505, 1208, 394, 1206, 367, 1211, 349, 1206, 336, 1192, 331, 1181, 333, 1182, 319, 1192, 321, 1199, 316, 1195, 281, 1182, 273)
+
+[editable path="Transition"]

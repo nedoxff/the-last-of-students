@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://g5wv0p0s5nu5"]
+
+[ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_cjthx"]
+
+[resource]
+script = ExtResource("1_cjthx")
+id = "mask_poster"
+name = "Постер с маской"
+description = "\"Соблюдайте дистанцию в 1,5 метра\"."
+metadata/_custom_type_script = "uid://blxerhl4pgulq"

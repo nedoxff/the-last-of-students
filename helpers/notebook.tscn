@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://kf3gseb2gta0"]
+[gd_scene load_steps=26 format=3 uid="uid://kf3gseb2gta0"]
 
 [ext_resource type="Script" uid="uid://blwihgmov1jw7" path="res://helpers/notebook.gd" id="1_0e8kc"]
 [ext_resource type="Texture2D" uid="uid://cjxwtfisraxvj" path="res://textures/notebook.png" id="2_db0qa"]
@@ -21,7 +21,10 @@
 [ext_resource type="Resource" uid="uid://bri4qxnghbx7w" path="res://data/people/helping_student.tres" id="18_eb0r1"]
 [ext_resource type="Resource" uid="uid://c3kyxsx2g07tx" path="res://data/people/weird_professor.tres" id="19_smeua"]
 [ext_resource type="Resource" uid="uid://ccpvoijdv360n" path="res://data/clues/strange_book.tres" id="21_6cmbp"]
+[ext_resource type="Resource" uid="uid://g5wv0p0s5nu5" path="res://data/clues/mask_poster.tres" id="21_eytqd"]
 [ext_resource type="Resource" uid="uid://c6ed22b3272ak" path="res://data/clues/strange_mirror.tres" id="22_ahoao"]
+[ext_resource type="Resource" uid="uid://d1jhirehuo3yl" path="res://data/clues/paint.tres" id="22_vblj6"]
+[ext_resource type="Resource" uid="uid://8m2qb3rpj3bt" path="res://data/clues/sanitizer.tres" id="23_43u35"]
 
 [node name="Notebook" type="Node2D"]
 script = ExtResource("1_0e8kc")
@@ -174,15 +177,15 @@ theme_override_constants/separation = 30
 
 [node name="NotebookEntry5" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
 layout_mode = 2
-entry = null
+entry = ExtResource("21_eytqd")
 
 [node name="NotebookEntry4" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
 layout_mode = 2
-entry = null
+entry = ExtResource("22_vblj6")
 
 [node name="NotebookEntry3" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
 layout_mode = 2
-entry = null
+entry = ExtResource("23_43u35")
 
 [node name="NotebookEntry7" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
 layout_mode = 2
