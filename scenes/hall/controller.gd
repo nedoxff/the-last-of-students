@@ -31,6 +31,7 @@ func _on_poster_clicked() -> void:
 	Dialogic.start("hall_poster")
 
 func _on_stairs_clicked() -> void:
+	create_tween().bind_node(self).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD).tween_property($Ambience, "volume_db", -80, 1)
 	$Transition.connect("animation_finished", func(which: String):
 		get_tree().change_scene_to_packed(library_scene))
 	$Transition.play("fade_out")

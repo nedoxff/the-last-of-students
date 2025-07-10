@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://cbxordhhqsqnr"]
+
+[ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_mw455"]
+
+[resource]
+script = ExtResource("1_mw455")
+id = "weird_poster"
+name = "Странный постер"
+description = "Выглядит как приглашение в религиозный клуб."
+metadata/_custom_type_script = "uid://blxerhl4pgulq"

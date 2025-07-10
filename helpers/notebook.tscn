@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://kf3gseb2gta0"]
+[gd_scene load_steps=28 format=3 uid="uid://kf3gseb2gta0"]
 
 [ext_resource type="Script" uid="uid://blwihgmov1jw7" path="res://helpers/notebook.gd" id="1_0e8kc"]
 [ext_resource type="Texture2D" uid="uid://cjxwtfisraxvj" path="res://textures/notebook.png" id="2_db0qa"]
@@ -25,6 +25,8 @@
 [ext_resource type="Resource" uid="uid://c6ed22b3272ak" path="res://data/clues/strange_mirror.tres" id="22_ahoao"]
 [ext_resource type="Resource" uid="uid://d1jhirehuo3yl" path="res://data/clues/paint.tres" id="22_vblj6"]
 [ext_resource type="Resource" uid="uid://8m2qb3rpj3bt" path="res://data/clues/sanitizer.tres" id="23_43u35"]
+[ext_resource type="Resource" uid="uid://cbxordhhqsqnr" path="res://data/clues/weird_poster.tres" id="24_vblj6"]
+[ext_resource type="Resource" uid="uid://cqbjk42lpp07e" path="res://data/clues/helmet.tres" id="25_43u35"]
 
 [node name="Notebook" type="Node2D"]
 script = ExtResource("1_0e8kc")
@@ -189,11 +191,11 @@ entry = ExtResource("23_43u35")
 
 [node name="NotebookEntry7" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
 layout_mode = 2
-entry = null
+entry = ExtResource("24_vblj6")
 
 [node name="NotebookEntry6" parent="Book/Items/LeftSide" instance=ExtResource("15_icrrf")]
 layout_mode = 2
-entry = null
+entry = ExtResource("25_43u35")
 
 [node name="RightSide" type="VBoxContainer" parent="Book/Items"]
 layout_mode = 0
