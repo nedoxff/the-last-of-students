@@ -9,11 +9,11 @@ extends Node2D
 var library_scene = preload("res://scenes/library/library.tscn")
 
 func _ready() -> void:
+	Dialogic.start("hall_strange")
 	if not Global.unlocked_locations.has("hall"):
 		Global.unlocked_locations.push_back("hall")
 		
 	$Transition.play("fade_in")
-	$Notebook.unlock_entry(mysterious_woman_entry)
 	Dialogic.signal_event.connect(func(arg: String):
 		if arg == "unlock_poster":
 			$Notebook.unlock_entry(hall_poster_entry)
@@ -22,7 +22,9 @@ func _ready() -> void:
 		elif arg == "unlock_sanitizer":
 			$Notebook.unlock_entry(hall_sanitizer_entry)
 		elif arg == "unlock_guard":
-			$Notebook.unlock_entry(guard_entry))
+			$Notebook.unlock_entry(guard_entry)
+		elif arg == "unlock_woman":
+			$Notebook.unlock_entry(mysterious_woman_entry))
 
 func _on_guard_clicked() -> void:
 	Dialogic.start("hall")

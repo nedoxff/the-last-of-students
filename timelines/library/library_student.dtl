@@ -1,1 +1,11 @@
+join helping_student (neutral) center
+main_character: Слушай, ты знаешь, где все?
+helping_student (away): Ты время видел?
+helping_student (neutral): В любом случае, я не знаю.
+helping_student: На меня положили переносить вещи, вот я и переношу.
+helping_student (tired): Надоело уже, если честно...
+helping_student (neutral): А ты куда путь держишь?
+main_character: ...[pause=1]Пока что никуда...
+helping_student (away): ...[pause=1]Ладно.
+[i]Как же неловко![/i]
 [signal arg="unlock_helping_student"]

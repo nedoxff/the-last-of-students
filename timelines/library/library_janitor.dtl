@@ -1,1 +1,9 @@
+join janitor (neutral) center
+main_character: Извините, а где все?
+janitor (talking): Не знаю.
+janitor (away): Обычно так рано утром мало кто здесь появляется.
+[i]Всмысле так рано утром?! Уже пары начались![/i]
+janitor (away): Кто знает, может здесь что-то произошло и всех отправили домой. 
+Я, откровенно говоря, не читаю рабочие чаты.
+main_character: Ясно...
 [signal arg="unlock_janitor"]

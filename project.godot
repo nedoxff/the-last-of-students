@@ -34,12 +34,13 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "dean_book": "res://timelines/dean/dean_book.dtl",
-"dean_cactus": "res://timelines/library/dean_cactus.dtl",
+"dean_cactus": "res://timelines/dean/dean_cactus.dtl",
 "dean_mirror": "res://timelines/dean/dean_mirror.dtl",
 "hall": "res://timelines/hall.dtl",
 "hall_paint": "res://timelines/hall/hall_paint.dtl",
 "hall_poster": "res://timelines/hall/hall_poster.dtl",
 "hall_sanitizer": "res://timelines/hall/hall_sanitizer.dtl",
+"hall_strange": "res://timelines/hall/hall_strange.dtl",
 "lecture_glove": "res://timelines/lecture/lecture_glove.dtl",
 "lecture_la": "res://timelines/lecture/lecture_la.dtl",
 "lecture_mask": "res://timelines/lecture/lecture_mask.dtl",
