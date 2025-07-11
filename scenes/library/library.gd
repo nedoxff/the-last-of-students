@@ -7,6 +7,9 @@ extends Node2D
 var dean_scene = preload("res://scenes/dean/dean.tscn")
 
 func _ready() -> void:
+	if not Global.unlocked_locations.has("library"):
+		Global.unlocked_locations.push_back("library")
+	
 	$Transition.play("fade_in")
 	Dialogic.signal_event.connect(func(arg: String):
 		if arg == "unlock_poster":

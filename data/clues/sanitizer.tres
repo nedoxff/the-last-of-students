@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://8m2qb3rpj3bt"]
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://8m2qb3rpj3bt"]
 
 [ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_8egcn"]
+[ext_resource type="Texture2D" uid="uid://ducqqj7ewapge" path="res://textures/notebook_entries/sanitizer.png" id="2_3qf6i"]
 
 [resource]
 script = ExtResource("1_8egcn")
 id = "sanitizer"
+texture = ExtResource("2_3qf6i")
 name = "Пустой антисептик"
 description = "Этикетка обещала \"99,9% защиты\"..."
 metadata/_custom_type_script = "uid://blxerhl4pgulq"

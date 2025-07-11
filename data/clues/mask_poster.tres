@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://g5wv0p0s5nu5"]
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://g5wv0p0s5nu5"]
 
 [ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_cjthx"]
+[ext_resource type="Texture2D" uid="uid://dmfrgujrcltq8" path="res://textures/notebook_entries/mask_poster.png" id="2_8tmfy"]
 
 [resource]
 script = ExtResource("1_cjthx")
 id = "mask_poster"
+texture = ExtResource("2_8tmfy")
 name = "Постер с маской"
 description = "\"Соблюдайте дистанцию в 1,5 метра\"."
 metadata/_custom_type_script = "uid://blxerhl4pgulq"

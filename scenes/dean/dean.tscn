@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cd2ikidytctrp"]
+[gd_scene load_steps=20 format=3 uid="uid://cd2ikidytctrp"]
 
 [ext_resource type="PackedScene" uid="uid://kf3gseb2gta0" path="res://helpers/notebook.tscn" id="1_fgf0y"]
 [ext_resource type="Texture2D" uid="uid://5enadj43qagn" path="res://textures/backgrounds/dean.png" id="1_ll5an"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="2_pfktb"]
 [ext_resource type="Resource" uid="uid://c6ed22b3272ak" path="res://data/clues/strange_mirror.tres" id="3_dyal3"]
 [ext_resource type="Shader" uid="uid://4nllrn8g8i37" path="res://shaders/Highlight.gdshader" id="6_sxn6d"]
-[ext_resource type="Texture2D" uid="uid://bx6bmot4fs6dg" path="res://misc/items/book.png" id="7_j7xqe"]
-[ext_resource type="Texture2D" uid="uid://c4q6aj0q55vi1" path="res://misc/items/mirror.png" id="8_ta2sw"]
-[ext_resource type="Texture2D" uid="uid://bxhfg07qg4bsf" path="res://misc/items/cactus.png" id="9_2bnn8"]
+[ext_resource type="Texture2D" uid="uid://bx6bmot4fs6dg" path="res://textures/backgrounds/highlights/items/book.png" id="7_j7xqe"]
+[ext_resource type="Texture2D" uid="uid://c4q6aj0q55vi1" path="res://textures/backgrounds/highlights/items/mirror.png" id="8_ta2sw"]
+[ext_resource type="Texture2D" uid="uid://bxhfg07qg4bsf" path="res://textures/backgrounds/highlights/items/cactus.png" id="9_2bnn8"]
 [ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="10_j7xqe"]
+[ext_resource type="PackedScene" uid="uid://b2bm8vc4y8ofb" path="res://helpers/map.tscn" id="11_2bnn8"]
 [ext_resource type="AudioStream" uid="uid://bat71ycry0xps" path="res://sfx/ambience_creepy.mp3" id="12_ta2sw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4xa8f"]
@@ -24,6 +25,13 @@ shader_parameter/highlight = false
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mvctx"]
 shader = ExtResource("6_sxn6d")
 shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bnn8"]
+shader = ExtResource("6_sxn6d")
+shader_parameter/highlight = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xa8f"]
+size = Vector2(138, 737)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_3anct"]
 
@@ -48,7 +56,6 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_j7xqe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book"]
-visible = false
 position = Vector2(1068, 620)
 scale = Vector2(0.7, 0.7)
 polygon = PackedVector2Array(19.2, -60.5, -9.2, -60.5, -15.8, -59.5, -17.5, -59.5, -26.5, -47.5, -27.5, -47.5, -27.5, 33.2, -26.5, 48.6, -26.5, 51.4, -16.5, 60.3, 11.4, 60.5, 15.9, 58.5, 20.3, 58.5, 23.5, 55.3, 23.5, 52.8, 27, 51.5, 27.5, 34.2, 24.5, 30.5, 22.5, 30.5, 22.5, 26.5, 21.6, 26.5, 22.5, 0.5, 22.5, -3.6, 19.5, -33.5, 19.5, -36.1, 22.9, -44.5, 24.8, -44.5, 23.5, -53.8, 23.5, -58.9)
@@ -64,7 +71,6 @@ scale = Vector2(0.66237, 0.66237)
 texture = ExtResource("8_ta2sw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mirror"]
-visible = false
 position = Vector2(781, 440)
 scale = Vector2(0.66237, 0.66237)
 polygon = PackedVector2Array(16.5, -93.5, 1.4, -93.5, -3.9, -91.5, -7.2, -91.5, -14.2, -85.5, -16.6, -85.5, -31.6, -60.5, -33, -60.5, -46, -16.5, -47.4, -16.5, -48.5, 3.3, -48.5, 76.2, -42.5, 84.1, -42.5, 86.6, -31.7, 93.5, -6.2, 93.5, 5.8, 89.5, 8.6, 89.5, 27.6, 60.5, 29.5, 60.5, 29.5, 53, 36.7, 38.5, 38.1, 38.5, 43.1, 15.5, 44.3, 15.5, 48.5, -25.8, 48.5, -54.5, 38.5, -71.1, 38.5, -73.3, 23.5, -89.4, 23.5, -90.9)
@@ -80,15 +86,30 @@ scale = Vector2(0.646342, 0.646342)
 texture = ExtResource("9_2bnn8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cactus"]
-visible = false
 position = Vector2(597.5, 289.884)
 scale = Vector2(0.646342, 0.646342)
 polygon = PackedVector2Array(29, -1.9, 7, -9.3, 7, -7.1, 4.9, -6.5, 0.200001, -6.5, -3.8, -2.5, -6.1, -2.5, -19, 18.9, -19, 20.7, -28.4, 22.5, -32.9, 22.5, -37.9, 28.5, -40.4, 28.5, -36, 54.8, -36, 61.9, -25, 90.9, -25, 91.5, 26.1, 91.5, 32.1, 81.5, 33.6, 81.5, 41, 45.4, 41, 24.1, 39, 21.5, 36.7, 21.5, 35, 13.1, 35, 11.9, 29, 2.8)
 
-[node name="Transition" parent="." instance=ExtResource("10_j7xqe")]
+[node name="Next" parent="." instance=ExtResource("2_pfktb")]
 
-[node name="ColorRect" parent="Transition" index="0"]
-visible = true
+[node name="Sprite2D" type="ColorRect" parent="Next"]
+visible = false
+material = SubResource("ShaderMaterial_2bnn8")
+offset_right = 128.0
+offset_bottom = 722.0
+mouse_filter = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next"]
+position = Vector2(59, 358.5)
+shape = SubResource("RectangleShape2D_4xa8f")
+
+[node name="Map" parent="." instance=ExtResource("11_2bnn8")]
+
+[node name="Overlay" parent="Map" index="1"]
+visible = false
+
+[node name="Map" parent="Map" index="2"]
+visible = false
 
 [node name="Notebook" parent="." instance=ExtResource("1_fgf0y")]
 
@@ -107,6 +128,8 @@ button_group = SubResource("ButtonGroup_3anct")
 [node name="ThoughtsButton" parent="Notebook/Book" index="3"]
 button_group = SubResource("ButtonGroup_3anct")
 
+[node name="Transition" parent="." instance=ExtResource("10_j7xqe")]
+
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_ta2sw")
 volume_db = -10.0
@@ -116,9 +139,11 @@ parameters/looping = true
 [connection signal="clicked" from="Book" to="." method="_on_book_clicked"]
 [connection signal="clicked" from="Mirror" to="." method="_on_mirror_clicked"]
 [connection signal="clicked" from="Cactus" to="." method="_on_cactus_clicked"]
+[connection signal="clicked" from="Next" to="." method="_on_next_clicked"]
 
 [editable path="Book"]
 [editable path="Mirror"]
 [editable path="Cactus"]
-[editable path="Transition"]
+[editable path="Map"]
 [editable path="Notebook"]
+[editable path="Transition"]

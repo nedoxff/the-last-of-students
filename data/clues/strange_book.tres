@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://ccpvoijdv360n"]
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://ccpvoijdv360n"]
 
 [ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_g1wxa"]
+[ext_resource type="Texture2D" uid="uid://coeqpw3fiwnyu" path="res://textures/notebook_entries/strange_book.png" id="2_4bd4y"]
 
 [resource]
 script = ExtResource("1_g1wxa")
 id = "strange_book"
+texture = ExtResource("2_4bd4y")
 name = "Странная книга"
 description = "На ней точно что-то написано..."
 metadata/_custom_type_script = "uid://blxerhl4pgulq"

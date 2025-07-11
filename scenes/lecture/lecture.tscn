@@ -1,9 +1,165 @@
-[gd_scene load_steps=2 format=3 uid="uid://wk7f0yyaq0cv"]
+[gd_scene load_steps=25 format=3 uid="uid://wk7f0yyaq0cv"]
 
-[ext_resource type="Texture2D" uid="uid://b1l3ypx8k67tp" path="res://textures/backgrounds/lecture.jpg" id="1_vfoii"]
+[ext_resource type="Texture2D" uid="uid://bjqrjbtklmxip" path="res://textures/backgrounds/lecture.png" id="1_vfoii"]
+[ext_resource type="Script" uid="uid://bccgaotx0huy2" path="res://scenes/lecture/lecture.gd" id="1_y1duv"]
+[ext_resource type="Resource" uid="uid://bg601ucmsj3oo" path="res://data/clues/glove.tres" id="2_b23lk"]
+[ext_resource type="PackedScene" uid="uid://cqoxgdwmocnlv" path="res://helpers/transition.tscn" id="2_be3ua"]
+[ext_resource type="PackedScene" uid="uid://qmw3dfvrhgcp" path="res://helpers/highlightable.tscn" id="3_8pc8f"]
+[ext_resource type="Resource" uid="uid://dqtbajtp158yl" path="res://data/clues/lipstick_mask.tres" id="3_lewg2"]
+[ext_resource type="Resource" uid="uid://c3kyxsx2g07tx" path="res://data/people/weird_professor.tres" id="4_2jkak"]
+[ext_resource type="Shader" uid="uid://4nllrn8g8i37" path="res://shaders/Highlight.gdshader" id="4_bmk5e"]
+[ext_resource type="Texture2D" uid="uid://cnmbujjjek8q0" path="res://textures/backgrounds/highlights/items/glove.png" id="4_lt8rw"]
+[ext_resource type="PackedScene" uid="uid://kf3gseb2gta0" path="res://helpers/notebook.tscn" id="4_ybu3e"]
+[ext_resource type="Texture2D" uid="uid://885rwjvt4w5w" path="res://textures/backgrounds/highlights/items/la.png" id="5_lt8rw"]
+[ext_resource type="Texture2D" uid="uid://2dpw4tpjfyni" path="res://textures/backgrounds/highlights/characters/teacher.png" id="6_736mm"]
+[ext_resource type="Texture2D" uid="uid://cvb6y5bhk15o" path="res://textures/backgrounds/highlights/items/stickers.png" id="7_f1ly1"]
+[ext_resource type="Texture2D" uid="uid://y5dygr1xodi7" path="res://textures/backgrounds/highlights/items/mask.png" id="8_lewg2"]
+[ext_resource type="Texture2D" uid="uid://5pedclq1bjox" path="res://textures/backgrounds/highlights/items/philosophy.png" id="9_736mm"]
+[ext_resource type="PackedScene" uid="uid://b2bm8vc4y8ofb" path="res://helpers/map.tscn" id="15_2jkak"]
+[ext_resource type="AudioStream" uid="uid://b8lotf4bhd0xe" path="res://sfx/chalkboard.mp3" id="17_typge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jkak"]
+shader = ExtResource("4_bmk5e")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lt8rw"]
+shader = ExtResource("4_bmk5e")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b23lk"]
+shader = ExtResource("4_bmk5e")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_736mm"]
+shader = ExtResource("4_bmk5e")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1ly1"]
+shader = ExtResource("4_bmk5e")
+shader_parameter/highlight = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lewg2"]
+shader = ExtResource("4_bmk5e")
+shader_parameter/highlight = false
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_t4eib"]
 
 [node name="Lecture" type="Node2D"]
+script = ExtResource("1_y1duv")
+glove_entry = ExtResource("2_b23lk")
+mask_entry = ExtResource("3_lewg2")
+teacher_entry = ExtResource("4_2jkak")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
+scale = Vector2(0.667, 0.667)
 texture = ExtResource("1_vfoii")
+
+[node name="Mask" parent="." instance=ExtResource("3_8pc8f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Mask"]
+visible = false
+material = SubResource("ShaderMaterial_2jkak")
+position = Vector2(393, 288)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("8_lewg2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mask"]
+polygon = PackedVector2Array(374, 291, 381, 283, 404, 282, 413, 291, 394, 296)
+
+[node name="Glove" parent="." instance=ExtResource("3_8pc8f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Glove"]
+visible = false
+material = SubResource("ShaderMaterial_lt8rw")
+position = Vector2(584, 281)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("4_lt8rw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Glove"]
+polygon = PackedVector2Array(595, 269, 586, 268, 571, 272, 569, 275, 573, 276, 576, 275, 577, 280, 580, 279, 582, 293, 584, 295, 586, 292, 588, 294, 592, 292, 591, 285, 594, 291, 596, 289, 597, 277)
+
+[node name="LA" parent="." instance=ExtResource("3_8pc8f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="LA"]
+visible = false
+material = SubResource("ShaderMaterial_b23lk")
+position = Vector2(841, 345.5)
+scale = Vector2(0.492683, 0.442307)
+texture = ExtResource("5_lt8rw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LA"]
+polygon = PackedVector2Array(792, 335, 792, 355, 848, 357, 889, 355, 890, 336, 831, 334)
+
+[node name="Teacher" parent="." instance=ExtResource("3_8pc8f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Teacher"]
+visible = false
+material = SubResource("ShaderMaterial_736mm")
+position = Vector2(1163, 320)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("6_736mm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Teacher"]
+polygon = PackedVector2Array(1153, 150, 1140, 148, 1125, 166, 1125, 183, 1136, 188, 1134, 197, 1123, 223, 1115, 294, 1109, 292, 1107, 302, 1111, 306, 1107, 353, 1111, 373, 1106, 466, 1111, 489, 1160, 490, 1162, 478, 1153, 474, 1138, 474, 1139, 469, 1154, 467, 1158, 459, 1138, 453, 1145, 427, 1155, 342, 1156, 311, 1160, 307, 1156, 290, 1161, 244, 1176, 251, 1218, 217, 1224, 204, 1222, 188, 1213, 191, 1212, 200, 1207, 206, 1184, 224, 1156, 209, 1154, 200, 1163, 202, 1169, 184, 1171, 161, 1170, 152)
+
+[node name="Stickers" parent="." instance=ExtResource("3_8pc8f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stickers"]
+visible = false
+material = SubResource("ShaderMaterial_f1ly1")
+position = Vector2(842, 575)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("7_f1ly1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stickers"]
+polygon = PackedVector2Array(797, 575, 855, 556, 888, 571, 826, 594)
+
+[node name="Philosophy" parent="." instance=ExtResource("3_8pc8f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Philosophy"]
+visible = false
+material = SubResource("ShaderMaterial_lewg2")
+position = Vector2(179, 424)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("9_736mm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Philosophy"]
+polygon = PackedVector2Array(123, 425, 180, 414, 242, 416, 200, 433, 123, 430)
+
+[node name="Transition" parent="." instance=ExtResource("2_be3ua")]
+
+[node name="Map" parent="." instance=ExtResource("15_2jkak")]
+
+[node name="Notebook" parent="." instance=ExtResource("4_ybu3e")]
+
+[node name="Overlay" parent="Notebook" index="1"]
+visible = false
+
+[node name="Book" parent="Notebook" index="6"]
+visible = false
+
+[node name="PeopleButton" parent="Notebook/Book" index="1"]
+button_group = SubResource("ButtonGroup_t4eib")
+
+[node name="ItemsButton" parent="Notebook/Book" index="2"]
+button_group = SubResource("ButtonGroup_t4eib")
+
+[node name="ThoughtsButton" parent="Notebook/Book" index="3"]
+button_group = SubResource("ButtonGroup_t4eib")
+
+[node name="Chalkboard" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_typge")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="clicked" from="Mask" to="." method="_on_mask_clicked"]
+[connection signal="clicked" from="Glove" to="." method="_on_glove_clicked"]
+[connection signal="clicked" from="LA" to="." method="_on_la_clicked"]
+[connection signal="clicked" from="Teacher" to="." method="_on_teacher_clicked"]
+[connection signal="clicked" from="Stickers" to="." method="_on_stickers_clicked"]
+[connection signal="clicked" from="Philosophy" to="." method="_on_philosophy_clicked"]
+
+[editable path="Transition"]
+[editable path="Notebook"]

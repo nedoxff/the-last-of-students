@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://cbxordhhqsqnr"]
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://cbxordhhqsqnr"]
 
 [ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_mw455"]
+[ext_resource type="Texture2D" uid="uid://b0266q02kvyr7" path="res://textures/notebook_entries/weird_poster.png" id="2_rxof5"]
 
 [resource]
 script = ExtResource("1_mw455")
 id = "weird_poster"
+texture = ExtResource("2_rxof5")
 name = "Странный постер"
 description = "Выглядит как приглашение в религиозный клуб."
 metadata/_custom_type_script = "uid://blxerhl4pgulq"

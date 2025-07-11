@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2bm8vc4y8ofb"]
+
+[ext_resource type="Script" uid="uid://b1hswxii0cd0m" path="res://helpers/map.gd" id="1_st0vv"]
+[ext_resource type="Texture2D" uid="uid://bc1atgalqn36l" path="res://textures/map.png" id="1_u6lxd"]
+[ext_resource type="Texture2D" uid="uid://b2k1a6wr6rbdp" path="res://textures/map_ui.png" id="3_x74dv"]
+[ext_resource type="Texture2D" uid="uid://m24iyapjjsb7" path="res://textures/notebook_ui/back_arrow.png" id="4_ig0qh"]
+[ext_resource type="AudioStream" uid="uid://dl8hn1c05pg3r" path="res://sfx/flip.mp3" id="4_oheke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig0qh"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="Map" type="Node2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_st0vv")
+
+[node name="Trigger" type="TextureRect" parent="."]
+z_index = 1
+z_as_relative = false
+offset_left = 750.0
+offset_top = -40.0
+offset_right = 1120.0
+offset_bottom = 140.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_u6lxd")
+
+[node name="Overlay" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.501961)
+z_index = 2
+z_as_relative = false
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Map" type="TextureRect" parent="."]
+z_index = 3
+z_as_relative = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.667, 0.667)
+mouse_filter = 2
+texture = ExtResource("3_x74dv")
+
+[node name="BackButton" type="TextureButton" parent="Map"]
+layout_mode = 0
+offset_left = 1251.87
+offset_top = 499.25
+offset_right = 1763.87
+offset_bottom = 1011.25
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("4_ig0qh")
+
+[node name="LocationsGrid" type="GridContainer" parent="Map"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 200.0
+offset_right = 1482.0
+offset_bottom = 400.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="lecture" type="PanelContainer" parent="Map/LocationsGrid"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig0qh")
+
+[node name="Label" type="Label" parent="Map/LocationsGrid/lecture"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Лекционная (шестой этаж)"
+horizontal_alignment = 1
+
+[node name="hall" type="PanelContainer" parent="Map/LocationsGrid"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig0qh")
+
+[node name="Label" type="Label" parent="Map/LocationsGrid/hall"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Холл (первый этаж)"
+horizontal_alignment = 1
+
+[node name="library" type="PanelContainer" parent="Map/LocationsGrid"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig0qh")
+
+[node name="Label" type="Label" parent="Map/LocationsGrid/library"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Библиотека (второй этаж)"
+horizontal_alignment = 1
+
+[node name="dean" type="PanelContainer" parent="Map/LocationsGrid"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig0qh")
+
+[node name="Label" type="Label" parent="Map/LocationsGrid/dean"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Декан (четвёртый этаж)"
+horizontal_alignment = 1
+
+[node name="Flip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oheke")
+
+[connection signal="gui_input" from="Trigger" to="." method="_on_trigger_gui_input"]
+[connection signal="mouse_entered" from="Trigger" to="." method="_on_trigger_mouse_entered"]
+[connection signal="mouse_exited" from="Trigger" to="." method="_on_trigger_mouse_exited"]
+[connection signal="pressed" from="Map/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="gui_input" from="Map/LocationsGrid/lecture" to="." method="_on_lecture_gui_input"]
+[connection signal="gui_input" from="Map/LocationsGrid/hall" to="." method="_on_hall_gui_input"]
+[connection signal="gui_input" from="Map/LocationsGrid/library" to="." method="_on_library_gui_input"]
+[connection signal="gui_input" from="Map/LocationsGrid/dean" to="." method="_on_dean_gui_input"]

@@ -9,6 +9,9 @@ extends Node2D
 var library_scene = preload("res://scenes/library/library.tscn")
 
 func _ready() -> void:
+	if not Global.unlocked_locations.has("hall"):
+		Global.unlocked_locations.push_back("hall")
+		
 	$Transition.play("fade_in")
 	$Notebook.unlock_entry(mysterious_woman_entry)
 	Dialogic.signal_event.connect(func(arg: String):

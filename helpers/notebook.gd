@@ -6,6 +6,9 @@ func _ready():
 	$Overlay.visible = false
 	$Book.visible = false
 	
+	$Overlay.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE
+	$Book.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE
+	
 	$Overlay.self_modulate = Color(1, 1, 1, 0)
 	$Book.modulate = Color(1, 1, 1, 0)
 	$Book.position = Vector2(0, 20)
@@ -15,10 +18,8 @@ func simple_tween():
 
 func _on_overlay_mouse_entered() -> void:
 	simple_tween().tween_property($Trigger, "position", Vector2(1000, 0), 0.5)
-
 func _on_overlay_mouse_exited() -> void:
 	simple_tween().tween_property($Trigger, "position", Vector2(1000, -40), 0.5)
-
 func _on_overlay_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		open_notebook_ui()
@@ -26,6 +27,8 @@ func _on_overlay_gui_input(event: InputEvent) -> void:
 func open_notebook_ui():
 	$Overlay.visible = true
 	$Book.visible = true
+	$Overlay.mouse_filter = Control.MouseFilter.MOUSE_FILTER_STOP
+	$Book.mouse_filter = Control.MouseFilter.MOUSE_FILTER_STOP
 	var tween = simple_tween()
 	tween.tween_property($Overlay, "self_modulate", Color(1, 1, 1, 0.5), 0.5)
 	tween.parallel().tween_property($Book, "modulate", Color(1, 1, 1, 1), 0.5)
@@ -34,6 +37,10 @@ func open_notebook_ui():
 
 var all_sections = ["People", "Items", "Thoughts"]
 func set_section(section: String) -> void:
+	if section == "Thoughts":
+		get_node("Book/Thoughts/LeftSide").visible = Global.unlocked_entries.size() != 14
+		get_node("Book/Thoughts/RightSide").visible = Global.unlocked_entries.size() == 14
+	
 	$SectionFlip.play()
 	for s in all_sections:
 		get_node("Book/" + s).visible = s == section
@@ -52,7 +59,9 @@ func _on_back_button_pressed() -> void:
 	tween.parallel().tween_property($Book, "position", Vector2(0, 20), 0.5)
 	tween.tween_callback(func(): 
 		$Overlay.visible = false
-		$Book.visible = false)
+		$Book.visible = false
+		$Overlay.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE
+		$Book.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE)
 	$Close.play()
 
 func unlock_entry(entry: NotebookEntry) -> void:
@@ -78,3 +87,7 @@ func unlock_entry(entry: NotebookEntry) -> void:
 		out_tween.parallel().tween_property($EntryAnnouncer, "position", Vector2(40, 60), 0.5)
 		out_tween.tween_callback(func(): $EntryAnnouncer.visible = false))
 	$Scribble.play()
+
+
+func _on_confirm_finale_pressed() -> void:
+	pass # Replace with function body.

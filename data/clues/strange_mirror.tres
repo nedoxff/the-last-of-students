@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://c6ed22b3272ak"]
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://c6ed22b3272ak"]
 
 [ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_y1bg2"]
+[ext_resource type="Texture2D" uid="uid://cib6lnk2h0fmk" path="res://textures/notebook_entries/strange_mirror.png" id="2_7dte1"]
 
 [resource]
 script = ExtResource("1_y1bg2")
 id = "strange_mirror"
+texture = ExtResource("2_7dte1")
 name = "Странное зеркало"
 description = "Мне кажется, что наши отражения не сошлись...
 "

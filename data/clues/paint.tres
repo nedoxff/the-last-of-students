@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="NotebookEntry" load_steps=2 format=3 uid="uid://d1jhirehuo3yl"]
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://d1jhirehuo3yl"]
 
 [ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_l3is7"]
+[ext_resource type="Texture2D" uid="uid://kvmg82vqrve1" path="res://textures/notebook_entries/paint.png" id="2_bc2b1"]
 
 [resource]
 script = ExtResource("1_l3is7")
 id = "paint"
+texture = ExtResource("2_bc2b1")
 name = "Засохшая краска"
 description = "На этикетке осталось только \"…елый\"."
 metadata/_custom_type_script = "uid://blxerhl4pgulq"

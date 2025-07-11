@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NotebookEntry" load_steps=3 format=3 uid="uid://dqtbajtp158yl"]
+
+[ext_resource type="Script" uid="uid://blxerhl4pgulq" path="res://data/notebook_entry.gd" id="1_i7rtn"]
+[ext_resource type="Texture2D" uid="uid://c71kit2ui2y7j" path="res://textures/notebook_entries/lipstick_mask.png" id="2_jbrww"]
+
+[resource]
+script = ExtResource("1_i7rtn")
+id = "lipstick_mask"
+texture = ExtResource("2_jbrww")
+name = "Испачканная маска"
+description = "На внутренней стороне - следы помады."
+metadata/_custom_type_script = "uid://blxerhl4pgulq"
