@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7a4dgel55i45"]
+
+[ext_resource type="Texture2D" uid="uid://kltcbxbrlbmo" path="res://textures/finale_book.png" id="1_ci2go"]
+[ext_resource type="Script" uid="uid://cj2e1jd1wuvpu" path="res://scenes/finale/finale.gd" id="1_hqqv1"]
+[ext_resource type="FontFile" uid="uid://cpli1gavykipj" path="res://fonts/jeff_script.otf" id="2_rg515"]
+[ext_resource type="Script" uid="uid://b5k1fd513v822" path="res://scenes/finale/droppable.gd" id="4_i8o0c"]
+[ext_resource type="Texture2D" uid="uid://dirsqxiwr8d85" path="res://textures/finale_note.png" id="6_hqqv1"]
+[ext_resource type="Script" uid="uid://c4psrpgnyg7rb" path="res://scenes/finale/draggable.gd" id="6_vrvty"]
+[ext_resource type="AudioStream" uid="uid://b1dy7stwf46d8" path="res://sfx/fip2.mp3" id="8_vrvty"]
+
+[node name="Finale" type="Node2D"]
+script = ExtResource("1_hqqv1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Book" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.667, 0.667)
+mouse_filter = 2
+texture = ExtResource("1_ci2go")
+
+[node name="1" type="Control" parent="Book"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Book/1"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 215.0
+offset_right = 801.0
+offset_bottom = 467.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 72
+text = "Как только я вошёл в универ, меня удивило, что..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Slot" type="ColorRect" parent="Book/1"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 547.0
+offset_right = 664.0
+offset_bottom = 674.0
+color = Color(0.666667, 0.666667, 0.666667, 0.462745)
+script = ExtResource("4_i8o0c")
+
+[node name="Options" type="Node" parent="Book/1"]
+
+[node name="Construction" type="NinePatchRect" parent="Book/1/Options"]
+offset_left = 729.0
+offset_top = 130.0
+offset_right = 1095.0
+offset_bottom = 299.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Book/1/Options/Construction"]
+layout_mode = 0
+offset_left = 41.8996
+offset_top = 43.3253
+offset_right = 333.9
+offset_bottom = 142.325
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 42
+text = "Никого не было в холле"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Flip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_vrvty")
