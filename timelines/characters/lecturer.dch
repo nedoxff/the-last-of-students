@@ -8,12 +8,31 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "",
+&"default_portrait": "neutral",
 &"description": "",
 &"display_name": "Лектор",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"neutral": {
+"export_overrides": {
+"image": "\"res://textures/characters/weird_professor/neutral.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"talking": {
+"export_overrides": {
+"image": "\"res://textures/characters/weird_professor/talking.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

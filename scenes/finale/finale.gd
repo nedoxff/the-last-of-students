@@ -1,4 +1,7 @@
 extends Node2D
+
+signal reset
+
 func simple_tween():
 	return create_tween().bind_node(self).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	

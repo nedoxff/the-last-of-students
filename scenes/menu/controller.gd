@@ -6,6 +6,9 @@ var index = 0
 var outside_scene = preload("res://scenes/outside/outside.tscn")
 
 func _ready() -> void:
+	if Global.ending != "":
+		$Character.texture = load("res://textures/menu/character_%s.png" % Global.ending)
+	
 	$Transition/ColorRect.visible = false
 	$Character.visible = false
 	$Title.visible = false
@@ -42,6 +45,13 @@ func _on_exit_game_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_start_game_button_pressed() -> void:
+	Global.ending = ""
+	Global.unlocked_entries = []
+	Global.unlocked_locations = []
+	Global.quarantine_score = 0
+	Global.construction_score = 0
+	Global.mystery_score = 0
+	
 	create_tween().tween_property($BG, "volume_db", -80, 1)
 	transition.play("fade_out")
 

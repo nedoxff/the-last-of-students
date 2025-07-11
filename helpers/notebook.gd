@@ -1,6 +1,7 @@
 extends Node2D
 
 signal entry_unlocked(id: String)
+var finale_scene = preload("res://scenes/finale/finale.tscn")
 
 func _ready():
 	$Overlay.visible = false
@@ -90,4 +91,10 @@ func unlock_entry(entry: NotebookEntry) -> void:
 
 
 func _on_confirm_finale_pressed() -> void:
-	pass # Replace with function body.
+	var transition = get_parent().get_node("Transition")
+	if transition == null:
+		get_tree().change_scene_to_packed(finale_scene)
+	else:
+		transition.connect("animation_finished", func(which: String):
+			get_tree().change_scene_to_packed(finale_scene))
+		transition.play("fade_out")

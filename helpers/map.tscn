@@ -105,7 +105,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ig0qh")
 [node name="Label" type="Label" parent="Map/LocationsGrid/dean"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Декан (четвёртый этаж)"
+text = "Деканат (четвёртый этаж)"
 horizontal_alignment = 1
 
 [node name="Flip" type="AudioStreamPlayer" parent="."]

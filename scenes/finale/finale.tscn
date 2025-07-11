@@ -1,12 +1,50 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7a4dgel55i45"]
+[gd_scene load_steps=27 format=3 uid="uid://c7a4dgel55i45"]
 
 [ext_resource type="Texture2D" uid="uid://kltcbxbrlbmo" path="res://textures/finale_book.png" id="1_ci2go"]
 [ext_resource type="Script" uid="uid://cj2e1jd1wuvpu" path="res://scenes/finale/finale.gd" id="1_hqqv1"]
 [ext_resource type="FontFile" uid="uid://cpli1gavykipj" path="res://fonts/jeff_script.otf" id="2_rg515"]
+[ext_resource type="Script" uid="uid://veenrj8xi37o" path="res://scenes/finale/pages/1.gd" id="3_vrvty"]
 [ext_resource type="Script" uid="uid://b5k1fd513v822" path="res://scenes/finale/droppable.gd" id="4_i8o0c"]
 [ext_resource type="Texture2D" uid="uid://dirsqxiwr8d85" path="res://textures/finale_note.png" id="6_hqqv1"]
 [ext_resource type="Script" uid="uid://c4psrpgnyg7rb" path="res://scenes/finale/draggable.gd" id="6_vrvty"]
+[ext_resource type="Script" uid="uid://coe7b6q6lmquk" path="res://scenes/finale/pages/2.gd" id="8_55o2g"]
+[ext_resource type="Texture2D" uid="uid://20hj7g48isiv" path="res://textures/notebook_entries/glove.png" id="8_u3w2a"]
 [ext_resource type="AudioStream" uid="uid://b1dy7stwf46d8" path="res://sfx/fip2.mp3" id="8_vrvty"]
+[ext_resource type="Texture2D" uid="uid://cbckhw5foyaul" path="res://textures/notebook_entries/helmet.png" id="10_f4sae"]
+[ext_resource type="Texture2D" uid="uid://kvmg82vqrve1" path="res://textures/notebook_entries/paint.png" id="11_cisny"]
+[ext_resource type="Texture2D" uid="uid://coeqpw3fiwnyu" path="res://textures/notebook_entries/strange_book.png" id="12_qmfo2"]
+[ext_resource type="Texture2D" uid="uid://cib6lnk2h0fmk" path="res://textures/notebook_entries/strange_mirror.png" id="13_5486i"]
+[ext_resource type="Texture2D" uid="uid://b0266q02kvyr7" path="res://textures/notebook_entries/weird_poster.png" id="14_1tlni"]
+[ext_resource type="Texture2D" uid="uid://c71kit2ui2y7j" path="res://textures/notebook_entries/lipstick_mask.png" id="15_uwnjs"]
+[ext_resource type="Texture2D" uid="uid://dmfrgujrcltq8" path="res://textures/notebook_entries/mask_poster.png" id="16_7bc6b"]
+[ext_resource type="Texture2D" uid="uid://ducqqj7ewapge" path="res://textures/notebook_entries/sanitizer.png" id="17_mfxdp"]
+[ext_resource type="Script" uid="uid://dxqwb0v04my8i" path="res://scenes/finale/pages/3.gd" id="18_1tlni"]
+[ext_resource type="Texture2D" uid="uid://swrttngult7g" path="res://textures/notebook_entries/guard.png" id="19_uwnjs"]
+[ext_resource type="Texture2D" uid="uid://drjhi1mo3bgs3" path="res://textures/notebook_entries/weird_professor.png" id="20_7bc6b"]
+[ext_resource type="Texture2D" uid="uid://cuvd3pjk6mgug" path="res://textures/notebook_entries/helping_student.png" id="21_mfxdp"]
+[ext_resource type="AudioStream" uid="uid://dd0qvxni33t5k" path="res://sfx/scribble.mp3" id="23_7bc6b"]
+[ext_resource type="AudioStream" uid="uid://cy4c7kol15t6p" path="res://sfx/book_close.mp3" id="24_mfxdp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqqv1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.517184, 0.517184, 0.517184, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrvty"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Finale" type="Node2D"]
 script = ExtResource("1_hqqv1")
@@ -14,7 +52,7 @@ script = ExtResource("1_hqqv1")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [node name="Book" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -27,6 +65,7 @@ texture = ExtResource("1_ci2go")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("3_vrvty")
 
 [node name="Label" type="Label" parent="Book/1"]
 layout_mode = 0
@@ -44,20 +83,101 @@ autowrap_mode = 3
 
 [node name="Slot" type="ColorRect" parent="Book/1"]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 547.0
-offset_right = 664.0
-offset_bottom = 674.0
+offset_left = 100.0
+offset_top = 513.0
+offset_right = 724.0
+offset_bottom = 747.0
 color = Color(0.666667, 0.666667, 0.666667, 0.462745)
 script = ExtResource("4_i8o0c")
 
-[node name="Options" type="Node" parent="Book/1"]
+[node name="Options" type="Control" parent="Book/1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Quarantine" type="NinePatchRect" parent="Book/1/Options"]
+custom_minimum_size = Vector2(415, 170)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.016
+anchor_top = 2.1989
+anchor_right = 18.016
+anchor_bottom = 2.1989
+offset_right = 415.0
+offset_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Book/1/Options/Quarantine"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 42.0
+offset_right = 390.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 42
+text = "Всё было обвещано постерами о масках"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Mystery" type="NinePatchRect" parent="Book/1/Options"]
+custom_minimum_size = Vector2(420, 175)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.1659
+anchor_top = 7.09645
+anchor_right = 18.1659
+anchor_bottom = 7.09645
+offset_right = 420.0
+offset_bottom = 175.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Book/1/Options/Mystery"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 39.0
+offset_right = 378.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 42
+text = "Меня поджидала загадочная девушка"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Construction" type="NinePatchRect" parent="Book/1/Options"]
-offset_left = 729.0
-offset_top = 130.0
-offset_right = 1095.0
-offset_bottom = 299.0
+custom_minimum_size = Vector2(375, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 18.9405
+anchor_top = 12.1939
+anchor_right = 19.5655
+anchor_bottom = 12.1939
+offset_right = 350.0
+offset_bottom = 150.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 0
@@ -70,11 +190,16 @@ script = ExtResource("6_vrvty")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Book/1/Options/Construction"]
-layout_mode = 0
-offset_left = 41.8996
-offset_top = 43.3253
-offset_right = 333.9
-offset_bottom = 142.325
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0399359
+anchor_top = -0.00678332
+anchor_right = 0.039936
+anchor_bottom = -0.00678131
+offset_left = 33.0
+offset_top = 36.0
+offset_right = 325.0
+offset_bottom = 135.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_rg515")
 theme_override_font_sizes/font_size = 42
@@ -82,6 +207,529 @@ text = "Никого не было в холле"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="NextButton" type="Button" parent="Book/1"]
+visible = false
+layout_mode = 0
+offset_left = 166.417
+offset_top = 809.595
+offset_right = 674.417
+offset_bottom = 898.595
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqqv1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrvty")
+text = "Следующая страница"
+
+[node name="2" type="Control" parent="Book"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_55o2g")
+
+[node name="Label" type="Label" parent="Book/2"]
+layout_mode = 0
+offset_left = 46.4768
+offset_top = 77.961
+offset_right = 797.477
+offset_bottom = 329.961
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 72
+text = "Из всех найденных вещей, больше всего меня настерегли..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Slot1" type="ColorRect" parent="Book/2"]
+layout_mode = 0
+offset_left = 131.934
+offset_top = 358.321
+offset_right = 387.934
+offset_bottom = 614.321
+color = Color(0.666667, 0.666667, 0.666667, 0.462745)
+script = ExtResource("4_i8o0c")
+
+[node name="Slot2" type="ColorRect" parent="Book/2"]
+layout_mode = 0
+offset_left = 434.783
+offset_top = 356.822
+offset_right = 690.783
+offset_bottom = 612.822
+color = Color(0.666667, 0.666667, 0.666667, 0.462745)
+script = ExtResource("4_i8o0c")
+
+[node name="Slot3" type="ColorRect" parent="Book/2"]
+layout_mode = 0
+offset_left = 280.36
+offset_top = 646.177
+offset_right = 536.36
+offset_bottom = 902.177
+color = Color(0.666667, 0.666667, 0.666667, 0.462745)
+script = ExtResource("4_i8o0c")
+
+[node name="Options" type="Control" parent="Book/2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Construction_1" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 16.7166
+anchor_top = 7.64618
+anchor_right = 17.2166
+anchor_bottom = 7.64618
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Construction_1"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_u3w2a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Construction_2" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 26.2619
+anchor_top = 11.6692
+anchor_right = 26.7619
+anchor_bottom = 11.6692
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Construction_2"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_f4sae")
+metadata/_edit_use_anchors_ = true
+
+[node name="Construction_3" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 25.6372
+anchor_top = 3.32334
+anchor_right = 26.1372
+anchor_bottom = 3.32334
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Construction_3"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_cisny")
+metadata/_edit_use_anchors_ = true
+
+[node name="Mystery_1" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 20.7396
+anchor_top = 3.32334
+anchor_right = 21.2396
+anchor_bottom = 3.32334
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Mystery_1"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_qmfo2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Mystery_2" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 21.1394
+anchor_top = 7.62119
+anchor_right = 21.6394
+anchor_bottom = 7.62119
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Mystery_2"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_5486i")
+metadata/_edit_use_anchors_ = true
+
+[node name="Mystery_3" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 21.5892
+anchor_top = 11.7691
+anchor_right = 22.0892
+anchor_bottom = 11.7691
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Mystery_3"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_1tlni")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quarantine_1" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 16.8666
+anchor_top = 11.8941
+anchor_right = 17.3666
+anchor_bottom = 11.8941
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Quarantine_1"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_uwnjs")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quarantine_2" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 16.3418
+anchor_top = 3.34833
+anchor_right = 16.8418
+anchor_bottom = 3.34833
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Quarantine_2"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_7bc6b")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quarantine_3" type="NinePatchRect" parent="Book/2/Options"]
+custom_minimum_size = Vector2(170, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 26.037
+anchor_top = 7.42129
+anchor_right = 26.537
+anchor_bottom = 7.42129
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/2/Options/Quarantine_3"]
+layout_mode = 0
+offset_left = 24.9876
+offset_top = 8.99551
+offset_right = 280.988
+offset_bottom = 264.996
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_mfxdp")
+metadata/_edit_use_anchors_ = true
+
+[node name="NextButton" type="Button" parent="Book/2"]
+visible = false
+layout_mode = 0
+offset_left = 152.924
+offset_top = 944.528
+offset_right = 660.924
+offset_bottom = 1033.53
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqqv1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrvty")
+text = "Следующая страница"
+
+[node name="3" type="Control" parent="Book"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_1tlni")
+
+[node name="Label" type="Label" parent="Book/3"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 215.0
+offset_right = 801.0
+offset_bottom = 467.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 72
+text = "Из всех, кого я встретил, больше всего я верю..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Slot" type="ColorRect" parent="Book/3"]
+layout_mode = 0
+offset_left = 295.352
+offset_top = 532.234
+offset_right = 551.352
+offset_bottom = 788.234
+color = Color(0.666667, 0.666667, 0.666667, 0.462745)
+script = ExtResource("4_i8o0c")
+
+[node name="Options" type="Control" parent="Book/3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Quarantine" type="NinePatchRect" parent="Book/3/Options"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.4413
+anchor_top = 3.29835
+anchor_right = 18.0663
+anchor_bottom = 4.67335
+offset_right = 200.0
+offset_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/3/Options/Quarantine"]
+layout_mode = 0
+offset_left = 16.9916
+offset_top = 11.994
+offset_right = 272.992
+offset_bottom = 267.994
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("19_uwnjs")
+
+[node name="Mystery" type="NinePatchRect" parent="Book/3/Options"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 23.6632
+anchor_top = 6.22189
+anchor_right = 24.2882
+anchor_bottom = 7.59689
+offset_right = 200.0
+offset_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/3/Options/Mystery"]
+layout_mode = 0
+offset_left = 16.9916
+offset_top = 11.994
+offset_right = 272.992
+offset_bottom = 267.994
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("20_7bc6b")
+
+[node name="Construction" type="NinePatchRect" parent="Book/3/Options"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.8411
+anchor_top = 9.09545
+anchor_right = 18.4661
+anchor_bottom = 10.4705
+offset_right = 200.0
+offset_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("6_hqqv1")
+patch_margin_left = 33
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 20
+script = ExtResource("6_vrvty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Book/3/Options/Construction"]
+layout_mode = 0
+offset_left = 16.9916
+offset_top = 11.994
+offset_right = 272.992
+offset_bottom = 267.994
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("21_mfxdp")
+
+[node name="NextButton" type="Button" parent="Book/3"]
+visible = false
+layout_mode = 0
+offset_left = 169.415
+offset_top = 911.544
+offset_right = 677.415
+offset_bottom = 1000.54
+theme_override_fonts/font = ExtResource("2_rg515")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_hqqv1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrvty")
+text = "Завершить"
 
 [node name="Flip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_vrvty")
+
+[node name="Scribble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_7bc6b")
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_mfxdp")
+volume_db = 10.0
+
+[node name="SectionFlip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_vrvty")
+
+[connection signal="reset" from="." to="Book/1" method="_on_finale_reset"]
+[connection signal="reset" from="." to="Book/2" method="_on_finale_reset"]
+[connection signal="reset" from="." to="Book/3" method="_on_finale_reset"]
+[connection signal="dropped" from="Book/1/Slot" to="Book/1" method="_on_slot_dropped"]
+[connection signal="pressed" from="Book/1/NextButton" to="Book/1" method="_on_next_button_pressed"]
+[connection signal="dropped" from="Book/2/Slot1" to="Book/2" method="_on_slot_1_dropped"]
+[connection signal="dropped" from="Book/2/Slot2" to="Book/2" method="_on_slot_2_dropped"]
+[connection signal="dropped" from="Book/2/Slot3" to="Book/2" method="_on_slot_3_dropped"]
+[connection signal="pressed" from="Book/2/NextButton" to="Book/2" method="_on_next_button_pressed"]
+[connection signal="dropped" from="Book/3/Slot" to="Book/3" method="_on_slot_dropped"]
+[connection signal="pressed" from="Book/3/NextButton" to="Book/3" method="_on_next_button_pressed"]
