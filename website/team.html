@@ -6,14 +6,14 @@
     <title>The Last of Students | Команда</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 <body class="team-page">
     <header>
-        <div class="logo">
-            <span class="logo-the">THE</span>
-            <span class="logo-main">LAST OF STUDENTS</span>
-        </div>
+        <a href="./index.html"><img width="250" src="assets/images/title.png" /></a>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -25,25 +25,24 @@
     </header>
 
     <main>
-        <section class="team-hero">
-            <h1>КОМАНДА</h1>
-            <p class="subtitle">Те, кто создал эту детективную историю</p>
+        <section class="team-header">
+            <h1><b>Команда</b></h1>
+            <i class="fa-solid fa-people-group fa-10x"></i>
         </section>
 
         <section class="team-members">
             <div class="member-card">
                 <div class="avatar-container">
                     <div class="avatar-circle">
-                        <img src="assets/images/team/mihail.jpg" alt="Будник Михаил">
+                        <img src="assets/images/team/nedo.png" alt="Будник Михаил">
                     </div>
-                    <div class="role-badge">Кодер, художник</div>
+                    <div class="role-badge">Кодер, художник спрайтов</div>
                 </div>
                 <div class="member-info">
                     <h2>Будник Михаил</h2>
-                    <p class="bio">Писал код при свечах</p>
                     <div class="contacts">
                         <a href="https://github.com/nedoxff" class="contact-link">
-						<i class="github-icon-fa"></i> 
+						<span class="github-icon-fa"></span> 
 						nedoxff
 						</a>
                         <a href="mailto:fpm.budnikMV@bsu.by" class="contact-link">
@@ -57,14 +56,13 @@
                     <div class="avatar-circle">
                         <img src="assets/images/team/sergey.jpg" alt="Лапатецкий Сергей">
                     </div>
-                    <div class="role-badge">Художник-детектив</div>
+                    <div class="role-badge">Кодер, художник фонов</div>
                 </div>
                 <div class="member-info">
                     <h2>Лапатецкий Сергей</h2>
-                    <p class="bio">Создал атмосферу тайны в каждом пикселе</p>
                     <div class="contacts">
                         <a href="https://github.com/Killerserr" class="contact-link">
-						<i class="github-icon-fa"></i> 
+						<span class="github-icon-fa"></span> 
 						Killerserr
 						</a>
                         <a href="mailto:fpm.lapateck@bsu.by" class="contact-link">
@@ -78,14 +76,13 @@
                     <div class="avatar-circle">
                         <img src="assets/images/team/vladimir.webp" alt="Масюк Владимир">
                     </div>
-                    <div class="role-badge">Генератор идей</div>
+                    <div class="role-badge">Кодер сайта, генератор идей</div>
                 </div>
                 <div class="member-info">
                     <h2>Масюк Владимир</h2>
-                    <p class="bio">Придумал эту историю после реального случая в БГУ</p>
                     <div class="contacts">
                         <a href="https://github.com/VladimirMasiuk" class="contact-link">
-						<i class="github-icon-fa"></i> 
+						<span class="github-icon-fa"></span> 
 						VladimirMasiuk 
 						</a>
                         <a href="mailto:fpm.masyukVS@bsu.by" class="contact-link">
@@ -95,15 +92,22 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="download-container">
-            <a href="the_last_of_students_demo.zip" class="download-btn">
-                <i class="fas fa-download"></i> СКАЧАТЬ
-            </a>
-        </div>
-        <p class="copyright">&copy; 2025 The Last of Students</p>
-    </footer>
+        <section class="make-decisions-section">
+            <div class="secret-section">
+                <h2><b>Готовы раскрыть<br/>тайну университета?</b></h2>
+                <p>Учитывая это всё, я думаю, что...</p>
+            </div>
+            <div class="download-section">
+                <div class="inner">
+                    <img src="assets/images/title.png" />
+                    <a href="the_last_of_students_demo.zip" class="download-btn">
+                        <i class="fas fa-download"></i> СКАЧАТЬ
+                    </a>
+                </div>
+            </div>
+            <img class="gg" src="assets/images/scared.png" />
+        </section>
+    </main>
 </body>
 </html>

@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 <body class="story-page">
     <header>
-        <div class="logo">
-            <span class="logo-the">THE</span>
-            <span class="logo-main">LAST OF STUDENTS</span>
-        </div>
+        <a href="./index.html"><img width="250" src="assets/images/title.png" /></a>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -27,17 +27,17 @@
     <main>
         <section class="story-hero">
             <div class="hero-content">
-                <h1>ИСТОРИЯ</h1>
+                <h1><b>История</b></h1>
                 <p class="subtitle">Правда страшнее вымысла</p>
             </div>
+            <i class="fas fa-clock-rotate-left fa-10x"></i>
         </section>
 
         <section class="story-timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h2>Обычный учебный день</h2>
-                    <div class="timeline-date">12 мая 2025 года</div>
-                    <p>Вы — студент 1 курса ФПМИ БГУ, который в очередной раз проспал на пары. Прибежав в главный корпус, вы ожидаете увидеть привычную суету студентов и преподавателей...</p>
+                    <p>Вы — студент 1 курса БГУ, который в очередной раз опаздывает на пары. Прибежав в главный корпус, вы ожидаете увидеть привычную суету студентов и преподавателей...</p>
                 </div>
             </div>
 
@@ -52,25 +52,31 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <h2>Последние свидетели</h2>
-                    <p>Вскоре вы находите 4 людей, которые почему-то остались. Они ведут себя странно и дают противоречивые показания. Кому верить?</p>
+                    <p>Вскоре вы найдёте оставшихся 4 людей. Они ведут себя странно и дают противоречивые показания. <b>Кому верить?</b></p>
                     <ul class="clue-list">
-                        <li><i class="fas fa-search"></i> Профессор утверждает одно</li>
-						<li><i class="fas fa-search"></i> Охранник настаивает на другом</li>
-                        <li><i class="fas fa-search"></i> Студенты ведут слишком заняты чтобы поведать нам то, что произошло</li>
-                        <li><i class="fas fa-search"></i> Лектор делает вид, что ничего не произошло</li>
+                        <li><i class="fas fa-search"></i> Профессор утверждает одно...</li>
+						<li><i class="fas fa-search"></i> Охранник настаивает на другом...</li>
+                        <li><i class="fas fa-search"></i> Лектор делает вид, что ничего не произошло...</li>
                     </ul>
                 </div>
             </div>
         </section>
+        
+        <section class="make-decisions-section">
+            <div class="secret-section">
+                <h2><b>Готовы раскрыть<br/>тайну университета?</b></h2>
+                <p>Учитывая это всё, я думаю, что...</p>
+            </div>
+            <div class="download-section">
+                <div class="inner">
+                    <img src="assets/images/title.png" />
+                    <a href="the_last_of_students_demo.zip" class="download-btn">
+                        <i class="fas fa-download"></i> СКАЧАТЬ
+                    </a>
+                </div>
+            </div>
+            <img class="gg" src="assets/images/scared.png" />
+        </section>
     </main>
-
-    <footer>
-        <div class="download-container">
-            <a href="the_last_of_students_demo.zip" class="download-btn">
-                <i class="fas fa-download"></i> СКАЧАТЬ
-            </a>
-        </div>
-        <p class="copyright">&copy; 2025 The Last of Students</p>
-    </footer>
 </body>
 </html>

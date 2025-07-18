@@ -131,6 +131,12 @@ polygon = PackedVector2Array(123, 425, 180, 414, 242, 416, 200, 433, 123, 430)
 
 [node name="Map" parent="." instance=ExtResource("15_2jkak")]
 
+[node name="Overlay" parent="Map" index="1"]
+visible = false
+
+[node name="Map" parent="Map" index="2"]
+visible = false
+
 [node name="Notebook" parent="." instance=ExtResource("4_ybu3e")]
 
 [node name="Overlay" parent="Notebook" index="1"]
@@ -162,4 +168,5 @@ parameters/looping = true
 [connection signal="clicked" from="Philosophy" to="." method="_on_philosophy_clicked"]
 
 [editable path="Transition"]
+[editable path="Map"]
 [editable path="Notebook"]

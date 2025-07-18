@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0qdvyrecckc7"
-path="res://.godot/imported/dialogue.png-9d32ccd3c94053876bd02d6ccc4506bb.ctex"
+uid="uid://jep7t5hbakn3"
+path="res://.godot/imported/nedo.png-da811c2906108cae1886592309dd72cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://website/assets/images/screenshots/dialogue.png"
-dest_files=["res://.godot/imported/dialogue.png-9d32ccd3c94053876bd02d6ccc4506bb.ctex"]
+source_file="res://website/assets/images/team/nedo.png"
+dest_files=["res://.godot/imported/nedo.png-da811c2906108cae1886592309dd72cc.ctex"]
 
 [params]
 

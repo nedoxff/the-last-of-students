@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Last of Students| Игровой процесс</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
+
 <body class="gameplay-page">
     <header>
-        <div class="logo">
-            <span class="logo-the">THE</span>
-            <span class="logo-main">LAST OF STUDENTS</span>
-        </div>
+        <a href="./index.html"><img width="250" src="assets/images/title.png" /></a>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -23,26 +27,26 @@
             </ul>
         </nav>
     </header>
-    
+
     <main>
         <section class="gameplay-header">
-            <h1>ИГРОВОЙ ПРОЦЕСС</h1>
-            <p class="subtitle">Раскройте тайну главного корпуса</p>
+            <h1><b>Игровой процесс</b></h1>
+            <i class="fa-solid fa-gamepad fa-10x"></i>
         </section>
-        
+
         <section class="mechanics">
             <div class="mechanic-card">
                 <div class="mechanic-icon">
                     <i class="fas fa-comments fa-4x"></i>
                 </div>
-                <h3>Диалоговая система</h3>
+                <h3>Диалоги</h3>
                 <ul>
                     <li><i class="fas fa-check-circle"></i> Выбирайте с кем и о чём разговаривать</li>
                     <li><i class="fas fa-check-circle"></i> Персонажи запоминают ваши слова и действия</li>
                     <li><i class="fas fa-check-circle"></i> Разные ответы открывают уникальные возможности</li>
                 </ul>
             </div>
-            
+
             <div class="mechanic-card">
                 <div class="mechanic-icon">
                     <i class="fas fa-search fa-4x"></i>
@@ -54,20 +58,31 @@
                     <li><i class="fas fa-check-circle"></i> Комбинируйте находки для новых выводов</li>
                 </ul>
             </div>
-            
+
             <div class="mechanic-card">
                 <div class="mechanic-icon">
                     <i class="fas fa-book fa-4x"></i>
                 </div>
-                <h3>Детективный блокнот</h3>
+                <h3>Блокнот</h3>
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> Автоматически фиксирует ключевые предметы и события</li>
-                    <li><i class="fas fa-check-circle"></i> Делайте собственные заметки и выводы</li>
-                    <li><i class="fas fa-check-circle"></i> Финал зависит от ваших записей и решений</li>
+                    <li><i class="fas fa-check-circle"></i> Фиксируйте ключевые предметы и события</li>
+                    <li><i class="fas fa-check-circle"></i> Делайте собственные выводы</li>
+                    <li><i class="fas fa-check-circle"></i> Финал зависит от ваших записей</li>
+                </ul>
+            </div>
+
+            <div class="mechanic-card">
+                <div class="mechanic-icon">
+                    <i class="fas fa-map fa-4x"></i>
+                </div>
+                <h3>Карта</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Перемещайтесь вокруг университета</li>
+                    <li><i class="fas fa-check-circle"></i> Заполняется по мере прохождения локаций</li>
                 </ul>
             </div>
         </section>
-        
+
         <section class="screenshots">
             <h2>Галерея</h2>
             <div class="screenshot-grid">
@@ -76,15 +91,23 @@
                 <img src="assets/images/screenshots/corridor.png" alt="Коридор БГУ">
             </div>
         </section>
+
+        <section class="make-decisions-section">
+            <div class="secret-section">
+                <h2><b>Готовы раскрыть<br />тайну университета?</b></h2>
+                <p>Учитывая это всё, я думаю, что...</p>
+            </div>
+            <div class="download-section">
+                <div class="inner">
+                    <img src="assets/images/title.png" />
+                    <a href="the_last_of_students_demo.zip" class="download-btn">
+                        <i class="fas fa-download"></i> СКАЧАТЬ
+                    </a>
+                </div>
+            </div>
+            <img class="gg" src="assets/images/scared.png" />
+        </section>
     </main>
-    
-    <footer>
-        <div class="download-container">
-            <a href="the_last_of_students_demo.zip" class="download-btn">
-                <i class="fas fa-download"></i> СКАЧАТЬ
-            </a>
-        </div>
-        <p class="copyright">&copy; 2025 The Last of Students</p>
-    </footer>
 </body>
+
 </html>

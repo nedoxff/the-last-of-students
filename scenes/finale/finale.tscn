@@ -62,7 +62,6 @@ mouse_filter = 2
 texture = ExtResource("1_ci2go")
 
 [node name="1" type="Control" parent="Book"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -571,6 +570,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vrvty")
 text = "Следующая страница"
 
 [node name="3" type="Control" parent="Book"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -697,6 +697,7 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("21_mfxdp")
 
 [node name="NextButton" type="Button" parent="Book/3"]
+visible = false
 layout_mode = 0
 offset_left = 169.415
 offset_top = 911.544
